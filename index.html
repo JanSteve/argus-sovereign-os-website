@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ARGUS Sovereign Workspace - The First AI-Native Desktop Workspace Wrapper</title>
-    <meta name="description" content="ARGUS Sovereign Workspace is the world's first AI-native desktop workspace wrapper with 100% local processing via Ollama.">
+    <title>ARGUS Sovereign Workspace - The First AI-Native Desktop Workspace</title>
+    <meta name="description" content="ARGUS Sovereign Workspace is the world's first AI-native desktop operating environment with 100% local processing via Ollama & keyless cloud intelligence.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
 <body>
     <header class="navbar">
         <div class="container nav-container">
-            <div class="logo">ARGUS</div>
+            <div class="logo">ARGUS <span class="logo-sub">OS</span></div>
             <nav class="nav-links">
                 <a href="#features">Features</a>
                 <a href="#preview">Preview</a>
@@ -21,8 +21,14 @@
                 <a href="#download">Download</a>
                 <a href="#docs">Docs</a>
             </nav>
-            <div class="mobile-menu-btn">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            <div class="nav-right">
+                <a href="https://github.com/JanSteve/ARGUS" target="_blank" class="nav-gh-link">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    <span>GitHub</span>
+                </a>
+                <div class="mobile-menu-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </div>
             </div>
         </div>
     </header>
@@ -31,18 +37,28 @@
         <section class="hero" id="home">
             <div class="hero-bg"></div>
             <div class="container hero-content animate-on-scroll">
+                <div class="version-pill">
+                    <span class="pulse-dot"></span>
+                    <span id="hero-version-text">ARGUS Sovereign OS v0.2.3</span>
+                </div>
                 <h1 class="hero-title">ARGUS <br> <span class="gradient-text">Sovereign Workspace</span></h1>
-                <h2 class="hero-subtitle">The World's First AI-Native Desktop Workspace</h2>
-                <p class="hero-desc">Experience a workspace wrapper where artificial intelligence is a first-class citizen. Complete data sovereignty with 100% local processing via Ollama—no cloud dependency, no data leakage. Wrapped in a stunning glassmorphism desktop environment.</p>
+                <h2 class="hero-subtitle">The World's First AI-Native Desktop Operating System</h2>
+                <p class="hero-desc">Experience an intelligent desktop where artificial intelligence is a first-class citizen. Complete data sovereignty with 100% local processing via Ollama, zero-setup Free Cloud AI, native host Wi-Fi control, and custom glassmorphism desktop workspace.</p>
+                
                 <div class="hero-ctas">
-                    <a href="https://github.com/JanSteve/ARGUS/releases/latest/download/ARGUS_Sovereign_OS.dmg" class="btn btn-primary">
+                    <a href="https://github.com/JanSteve/ARGUS/releases" class="btn btn-primary btn-download" data-os="macos">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 13v-2a10 10 0 0 0-10-10C6.48 1 2 5.48 2 11v2"></path><path d="M22 13v-2"></path><path d="M2 13v-2"></path><path d="M12 21a9.98 9.98 0 0 0 5-1.34"></path><path d="M12 21a9.98 9.98 0 0 1-5-1.34"></path><path d="M12 21v-8"></path><path d="M16 13v-2a4 4 0 0 0-8 0v2"></path><circle cx="12" cy="13" r="2"></circle></svg>
-                        Download for macOS
+                        <span class="btn-text">Download for macOS</span>
+                        <span class="btn-subtext">.DMG (Apple Silicon)</span>
                     </a>
-                    <a href="https://github.com/JanSteve/ARGUS/releases/latest/download/ARGUS_Sovereign_OS_x64_en-US.msi" class="btn btn-secondary">
+                    <a href="https://github.com/JanSteve/ARGUS/releases" class="btn btn-secondary btn-download" data-os="windows">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
-                        Download for Windows
+                        <span class="btn-text">Download for Windows</span>
+                        <span class="btn-subtext">.EXE / .MSI (x64)</span>
                     </a>
+                </div>
+                <div class="release-note-hint">
+                    <span>⚡ Keyless AI chat, host Wi-Fi integration & connected web search included</span>
                 </div>
                 <div class="scroll-indicator">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -54,7 +70,7 @@
             <div class="container">
                 <div class="section-header animate-on-scroll">
                     <h2>Uncompromising Power & Privacy</h2>
-                    <p>Designed from the ground up for the AI era.</p>
+                    <p>Designed from the ground up for the next generation of computing.</p>
                 </div>
                 <div class="features-grid">
                     <div class="feature-card animate-on-scroll">
@@ -62,90 +78,42 @@
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
                         </div>
                         <h3>AI-First Architecture</h3>
-                        <p>An intelligent assistant built directly into every workflow, application, and system component.</p>
+                        <p>An intelligent assistant that automates tasks across the OS—toggle hardware Wi-Fi, take notes, and launch tools by typing naturally.</p>
                     </div>
                     <div class="feature-card animate-on-scroll" style="transition-delay: 100ms">
                         <div class="feature-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
                         </div>
                         <h3>Sovereign Compute</h3>
-                        <p>100% local processing via Ollama. Zero cloud dependency means your data never leaves your machine.</p>
+                        <p>100% local processing via Ollama plus built-in zero-setup Free Cloud AI with no required API keys.</p>
                     </div>
                     <div class="feature-card animate-on-scroll" style="transition-delay: 200ms">
                         <div class="feature-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
                         </div>
-                        <h3>Premium Desktop</h3>
-                        <p>A breathtaking glassmorphism UI featuring Aero Snap, advanced window management, and smooth animations.</p>
+                        <h3>Premium Desktop UI</h3>
+                        <p>Glassmorphism desktop with single-click shortcut launching, Aero Snap window management, and custom taskbar system tray.</p>
                     </div>
                     <div class="feature-card animate-on-scroll">
                         <div class="feature-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
                         </div>
-                        <h3>Built-in Apps</h3>
-                        <p>Comes pre-loaded with a modern Browser, Terminal, Calculator, Notes, Music Player, Photos, and File Explorer.</p>
+                        <h3>Full Built-in App Suite</h3>
+                        <p>Pre-loaded with connected Search Browser, Terminal, Calculator, Notes, Music Player, Photos gallery, and File Explorer.</p>
                     </div>
                     <div class="feature-card animate-on-scroll" style="transition-delay: 100ms">
                         <div class="feature-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
                         </div>
-                        <h3>Multi-Provider AI</h3>
-                        <p>Flexible backend supporting Ollama, Groq, DeepSeek, Gemini, and NVIDIA API endpoints.</p>
+                        <h3>Multi-Model Routing</h3>
+                        <p>Seamlessly switch between local models (Llama 3, Mistral, Qwen) and cloud endpoints (GPT-4o Mini, Claude, Gemini).</p>
                     </div>
                     <div class="feature-card animate-on-scroll" style="transition-delay: 200ms">
                         <div class="feature-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
                         </div>
-                        <h3>Cross-Platform</h3>
-                        <p>Engineered with Tauri to run seamlessly on both macOS and Windows with native performance.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="preview" id="preview">
-            <div class="container">
-                <div class="section-header animate-on-scroll">
-                    <h2>Immaculate Aesthetics</h2>
-                    <p>Where beautiful design meets extreme capability.</p>
-                </div>
-                <div class="preview-showcase animate-on-scroll">
-                    <div class="mockup-window">
-                        <div class="mockup-header">
-                            <div class="dots">
-                                <span></span><span></span><span></span>
-                            </div>
-                        </div>
-                        <div class="mockup-body">
-                            <div class="mockup-sidebar"></div>
-                            <div class="mockup-content">
-                                <div class="mockup-card"></div>
-                                <div class="mockup-card"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="architecture" id="architecture">
-            <div class="container">
-                <div class="section-header animate-on-scroll">
-                    <h2>Modern Architecture</h2>
-                    <p>Built on a robust, high-performance stack.</p>
-                </div>
-                <div class="architecture-content animate-on-scroll">
-                    <div class="arch-diagram">
-                        <div class="layer tauri">Tauri / Rust (System Layer)</div>
-                        <div class="layer react">React / TS (UI Layer)</div>
-                        <div class="layer ollama">Ollama (AI Kernel Layer)</div>
-                    </div>
-                    <div class="tech-badges">
-                        <span class="badge">React</span>
-                        <span class="badge">TypeScript</span>
-                        <span class="badge">Tauri</span>
-                        <span class="badge">Rust</span>
-                        <span class="badge">Vite</span>
+                        <h3>Native Cross-Platform</h3>
+                        <p>Engineered with Tauri 2 and Rust for blazing speed, tiny memory footprint, and native OS hardware access.</p>
                     </div>
                 </div>
             </div>
@@ -155,32 +123,43 @@
             <div class="container">
                 <div class="section-header animate-on-scroll">
                     <h2>Get ARGUS Today</h2>
-                    <p>Ready to reclaim your desktop?</p>
+                    <p>Reclaim your computing with sovereign AI.</p>
                 </div>
                 <div class="download-grid">
-                    <div class="download-card animate-on-scroll">
-                        <h3>macOS</h3>
+                    <div class="download-card animate-on-scroll" id="card-macos">
+                        <div class="card-badge">macOS</div>
+                        <h3>Apple Silicon</h3>
                         <ul class="sys-reqs">
-                            <li>macOS 12.0 or later</li>
-                            <li>16GB Unified Memory recommended</li>
+                            <li>macOS 12.0 (Monterey) or later</li>
+                            <li>Apple Silicon (M1 / M2 / M3 / M4)</li>
+                            <li>8GB Unified RAM (16GB recommended for local AI)</li>
                             <li>2GB available disk space</li>
-                            <li>Apple Silicon (M1/M2/M3/M4)</li>
                         </ul>
-                        <a href="https://github.com/JanSteve/ARGUS/releases/latest/download/ARGUS_Sovereign_OS.dmg" class="btn btn-primary">Download for macOS</a>
+                        <a href="https://github.com/JanSteve/ARGUS/releases" class="btn btn-primary btn-download" data-os="macos">
+                            <span>Download for macOS (.dmg)</span>
+                        </a>
+                        <div class="asset-info" id="macos-asset-info">Fetching latest build...</div>
                     </div>
-                    <div class="download-card animate-on-scroll" style="transition-delay: 100ms">
-                        <h3>Windows</h3>
+                    <div class="download-card animate-on-scroll" id="card-windows" style="transition-delay: 100ms">
+                        <div class="card-badge">Windows</div>
+                        <h3>Windows 10 / 11</h3>
                         <ul class="sys-reqs">
-                            <li>Windows 10 or later</li>
-                            <li>16GB RAM minimum</li>
+                            <li>Windows 10 / 11 (64-bit)</li>
+                            <li>Intel Core i5 / AMD Ryzen 5 or higher</li>
+                            <li>8GB RAM minimum (16GB recommended)</li>
                             <li>2GB available disk space</li>
-                            <li>NVIDIA RTX GPU recommended</li>
                         </ul>
-                        <a href="https://github.com/JanSteve/ARGUS/releases/latest/download/ARGUS_Sovereign_OS_x64_en-US.msi" class="btn btn-primary">Download for Windows</a>
+                        <a href="https://github.com/JanSteve/ARGUS/releases" class="btn btn-primary btn-download" data-os="windows">
+                            <span>Download for Windows (.exe / .msi)</span>
+                        </a>
+                        <div class="asset-info" id="windows-asset-info">Fetching latest build...</div>
                     </div>
                 </div>
                 <div class="source-link animate-on-scroll">
-                    <a href="https://github.com/JanSteve/ARGUS" target="_blank">Or build from source on GitHub <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+                    <a href="https://github.com/JanSteve/ARGUS/releases" target="_blank" class="releases-hub-link">
+                        <span>📦 View all releases & source packages on GitHub</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </a>
                 </div>
             </div>
         </section>
@@ -189,29 +168,32 @@
             <div class="container">
                 <div class="section-header animate-on-scroll">
                     <h2>Quick Start</h2>
-                    <p>Up and running in minutes.</p>
+                    <p>Up and running in seconds.</p>
                 </div>
                 <div class="quick-start-steps animate-on-scroll">
                     <div class="step">
                         <div class="step-num">1</div>
-                        <h4>Download</h4>
-                        <p>Grab the latest installer for your OS.</p>
+                        <h4>Download & Install</h4>
+                        <p>Download the installer for macOS or Windows and run the setup.</p>
                     </div>
                     <div class="step">
                         <div class="step-num">2</div>
-                        <h4>Install</h4>
-                        <p>Run the installer and grant required permissions.</p>
+                        <h4>Launch ARGUS</h4>
+                        <p>Open the app. Free Cloud AI works out of the box with zero API keys.</p>
                     </div>
                     <div class="step">
                         <div class="step-num">3</div>
-                        <h4>Launch</h4>
-                        <p>Start ARGUS and initialize the AI kernel.</p>
+                        <h4>Optional Local AI</h4>
+                        <p>Install Ollama from <a href="https://ollama.com" target="_blank" style="color:#60a5fa">ollama.com</a> for 100% private offline LLMs.</p>
                     </div>
                 </div>
                 <div class="code-block-wrapper animate-on-scroll">
                     <h4>Building from source</h4>
-                    <pre><code>git clone https://github.com/JanSteve/ARGUS.git
+                    <pre><code># Clone ARGUS repository
+git clone https://github.com/JanSteve/ARGUS.git
 cd ARGUS
+
+# Install dependencies & run
 npm install
 npm run tauri dev</code></pre>
                 </div>
@@ -222,11 +204,12 @@ npm run tauri dev</code></pre>
     <footer>
         <div class="container footer-content">
             <div class="footer-brand">
-                <h3>ARGUS OS</h3>
+                <h3>ARGUS Sovereign OS</h3>
                 <p>The sovereign AI desktop experience.</p>
             </div>
             <div class="footer-links">
-                <a href="https://github.com/JanSteve/ARGUS">GitHub</a>
+                <a href="https://github.com/JanSteve/ARGUS" target="_blank">GitHub Repository</a>
+                <a href="https://github.com/JanSteve/ARGUS/releases" target="_blank">Releases</a>
                 <a href="#">License: Source-Available & Proprietary</a>
             </div>
         </div>
@@ -234,6 +217,15 @@ npm run tauri dev</code></pre>
             <p>&copy; 2026 R Jan Steve Daniel. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Download Toast Notification -->
+    <div id="download-toast" class="toast hidden">
+        <div class="toast-icon">🚀</div>
+        <div class="toast-body">
+            <div class="toast-title" id="toast-title">Starting Download</div>
+            <div class="toast-desc" id="toast-desc">Connecting to latest release artifact...</div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
