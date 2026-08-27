@@ -124,23 +124,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function fallbackToReleasesHub() {
-        macosButtons.forEach(btn => btn.href = RELEASES_FALLBACK_URL);
-        windowsButtons.forEach(btn => btn.href = RELEASES_FALLBACK_URL);
-        if (macosInfo) macosInfo.textContent = 'View on GitHub Releases';
-        if (windowsInfo) windowsInfo.textContent = 'View on GitHub Releases';
+        const macDirect = `https://github.com/${GITHUB_REPO}/releases/latest/download/ARGUS_0.1.0_aarch64.dmg`;
+        const winDirect = `https://github.com/${GITHUB_REPO}/releases/latest/download/ARGUS_0.1.0_x64_en-US.msi`;
+        macosButtons.forEach(btn => {
+            btn.href = releaseState.macosUrl || macDirect;
+        });
+        windowsButtons.forEach(btn => {
+            btn.href = releaseState.windowsUrl || winDirect;
+        });
+        if (macosInfo) macosInfo.textContent = 'Direct Installer (.dmg)';
+        if (windowsInfo) windowsInfo.textContent = 'Direct Installer (.exe / .msi)';
     }
 
     // ─── 4. Download Button Click Interceptor ───
     function handleDownloadClick(e, osType) {
         const targetUrl = osType === 'macos' ? releaseState.macosUrl : releaseState.windowsUrl;
-        const osLabel = osType === 'macos' ? 'macOS (Apple Silicon)' : 'Windows (x64)';
+        const osLabel = osType === 'macos' ? 'macOS' : 'Windows';
 
-        if (targetUrl) {
-            showToast('Download Initialized', `Downloading ARGUS for ${osLabel}...`);
-            // Normal link behavior handles the download
-        } else {
-            showToast('Opening GitHub Releases', `Redirecting to latest release assets for ${osLabel}...`);
-            window.open(RELEASES_FALLBACK_URL, '_blank');
+        showToast('Download Started', `Downloading ARGUS Sovereign OS for ${osLabel}...`);
+        if (!targetUrl) {
+            // Fallback direct link
+            const direct = osType === 'macos'
+                ? `https://github.com/${GITHUB_REPO}/releases/latest/download/ARGUS_0.1.0_aarch64.dmg`
+                : `https://github.com/${GITHUB_REPO}/releases/latest/download/ARGUS_0.1.0_x64_en-US.msi`;
+            window.location.href = direct;
             e.preventDefault();
         }
     }
