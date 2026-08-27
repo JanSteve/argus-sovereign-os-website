@@ -6,11 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // State for resolved assets
     const releaseState = {
         loaded: false,
-        tagName: 'v0.2.3',
-        macosUrl: null,
-        macosName: null,
-        windowsUrl: null,
-        windowsName: null,
+        tagName: 'v0.2.4',
+        macosUrl: '/downloads/ARGUS_macOS.dmg',
+        macosName: 'ARGUS_macOS.dmg',
+        windowsUrl: 'https://github.com/JanSteve/ARGUS/releases/download/v0.2.4/ARGUS_0.1.0_x64_en-US.msi',
+        windowsName: 'ARGUS_Setup.msi',
     };
 
     // DOM Elements
