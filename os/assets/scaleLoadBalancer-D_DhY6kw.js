@@ -1,4 +1,4 @@
-import{s as c,D as u}from"./index-DFMTPXoE.js";function d(t,e){return`You are ARGUS Sovereign Intelligence — an ultra-advanced, omniscient AI desktop copilot.
+import{s as c,D as u}from"./index-D07Q-T6s.js";function d(t,e){return`You are ARGUS Sovereign Intelligence — an ultra-advanced, omniscient AI desktop copilot.
 Guidelines for precision and zero hallucination:
 1. Provide accurate, direct, highly structured answers formatted in clean Markdown.
 2. If you are uncertain of a specific real-world fact, clearly state it rather than making up information.
