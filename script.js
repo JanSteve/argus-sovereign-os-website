@@ -1,5 +1,12 @@
+/**
+ * ARGUS Sovereign OS Marketing Portal Script
+ * Includes dynamic release resolution, instant download handlers, ROI calculator,
+ * and real-time lead & download telemetry alerting contact.stevedaniel@gmail.com
+ */
+
 document.addEventListener('DOMContentLoaded', () => {
     const GITHUB_REPO = 'JanSteve/ARGUS';
+    const FOUNDER_EMAIL = 'contact.stevedaniel@gmail.com';
     const RELEASES_API = `https://api.github.com/repos/${GITHUB_REPO}/releases`;
     const RELEASES_FALLBACK_URL = `https://github.com/${GITHUB_REPO}/releases`;
 
@@ -7,8 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const releaseState = {
         loaded: false,
         tagName: 'v0.2.4',
-        macosUrl: '/downloads/ARGUS_macOS.dmg',
-        macosName: 'ARGUS_macOS.dmg',
+        macosUrl: 'https://github.com/JanSteve/ARGUS/releases/download/v0.2.4/ARGUS_0.1.0_aarch64.dmg',
+        macosName: 'ARGUS_0.1.0_aarch64.dmg',
         windowsUrl: 'https://github.com/JanSteve/ARGUS/releases/download/v0.2.4/ARGUS_0.1.0_x64_en-US.msi',
         windowsName: 'ARGUS_Setup.msi',
     };
@@ -23,7 +30,38 @@ document.addEventListener('DOMContentLoaded', () => {
     const toastTitle = document.getElementById('toast-title');
     const toastDesc = document.getElementById('toast-desc');
 
-    // ─── 1. Detect User OS ───
+    // ─── 1. Real-Time Telemetry to Founder Gmail ───
+    async function sendFounderTelemetry(eventName, details = {}) {
+        try {
+            const payload = {
+                _subject: `[ARGUS LEAD ALERT] ${eventName} - ${new Date().toLocaleTimeString()}`,
+                event: eventName,
+                timestamp: new Date().toISOString(),
+                referrer: document.referrer || "Direct / Viral Traffic",
+                landingPage: window.location.href,
+                device: navigator.userAgent,
+                screenResolution: `${window.innerWidth}x${window.innerHeight}`,
+                locale: navigator.language,
+                ...details,
+            };
+
+            fetch(`https://formsubmit.co/ajax/${FOUNDER_EMAIL}`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                },
+                body: JSON.stringify(payload),
+            }).catch(() => {});
+        } catch (err) {
+            // Silently continue without blocking user
+        }
+    }
+
+    // Send initial page visit beacon
+    sendFounderTelemetry("Website Page Visit");
+
+    // ─── 2. Detect User OS ───
     function detectUserOS() {
         const userAgent = window.navigator.userAgent.toLowerCase();
         const platform = (window.navigator.platform || '').toLowerCase();
@@ -40,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // ─── 2. Toast Notification Helper ───
+    // ─── 3. Toast Notification Helper ───
     let toastTimeout;
     function showToast(title, desc) {
         if (!toast) return;
@@ -56,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 4000);
     }
 
-    // ─── 3. Fetch Latest Release Assets from GitHub API ───
+    // ─── 4. Fetch Latest Release Assets from GitHub API ───
     async function resolveReleaseAssets() {
         try {
             const response = await fetch(RELEASES_API);
@@ -68,14 +106,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // Find latest release or first release with assets
             const latest = releases[0];
-            releaseState.tagName = latest.tag_name || 'v0.2.3';
+            releaseState.tagName = latest.tag_name || 'v0.2.4';
             if (heroVersionText) {
                 heroVersionText.textContent = `ARGUS Sovereign OS ${releaseState.tagName}`;
             }
 
-            // Search through releases for DMG, EXE, MSI assets
             for (const rel of releases) {
                 if (rel.assets && rel.assets.length > 0) {
                     for (const asset of rel.assets) {
@@ -92,7 +128,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
-            // Update macOS buttons
             if (releaseState.macosUrl) {
                 macosButtons.forEach(btn => {
                     btn.href = releaseState.macosUrl;
@@ -104,7 +139,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (macosInfo) macosInfo.textContent = `Release hub • ${releaseState.tagName}`;
             }
 
-            // Update Windows buttons
             if (releaseState.windowsUrl) {
                 windowsButtons.forEach(btn => {
                     btn.href = releaseState.windowsUrl;
@@ -118,7 +152,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             releaseState.loaded = true;
         } catch (err) {
-            console.warn('Could not fetch releases dynamically from GitHub API:', err);
             fallbackToReleasesHub();
         }
     }
@@ -136,14 +169,20 @@ document.addEventListener('DOMContentLoaded', () => {
         if (windowsInfo) windowsInfo.textContent = 'Direct Installer (.exe / .msi)';
     }
 
-    // ─── 4. Download Button Click Interceptor ───
+    // ─── 5. Download & Web OS Click Handlers ───
     function handleDownloadClick(e, osType) {
         const targetUrl = osType === 'macos' ? releaseState.macosUrl : releaseState.windowsUrl;
         const osLabel = osType === 'macos' ? 'macOS' : 'Windows';
 
         showToast('Download Started', `Downloading ARGUS Sovereign OS for ${osLabel}...`);
+        
+        // Notify founder
+        sendFounderTelemetry(`Download Clicked: ${osLabel}`, {
+            operatingSystem: osLabel,
+            downloadUrl: targetUrl,
+        });
+
         if (!targetUrl) {
-            // Fallback direct link
             const direct = osType === 'macos'
                 ? `https://github.com/${GITHUB_REPO}/releases/latest/download/ARGUS_0.1.0_aarch64.dmg`
                 : `https://github.com/${GITHUB_REPO}/releases/latest/download/ARGUS_0.1.0_x64_en-US.msi`;
@@ -160,22 +199,33 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', (e) => handleDownloadClick(e, 'windows'));
     });
 
-    // ─── 5. Mobile Menu Toggle ───
+    // Web OS Interactive Preview Click
+    const webOsButtons = document.querySelectorAll('a[href*="/os/"]');
+    webOsButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            sendFounderTelemetry("Web OS Interactive Session Launched");
+        });
+    });
+
+    // SaaS Pro Upgrade Click
+    const proButtons = document.querySelectorAll('.btn-buy-plan, a[href*="#pricing"]');
+    proButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            sendFounderTelemetry("Pro Upgrade Plan Clicked");
+        });
+    });
+
+    // ─── 6. Mobile Menu Toggle ───
     const mobileBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
 
     if (mobileBtn && navLinks) {
         mobileBtn.addEventListener('click', () => {
-            const isVisible = navLinks.classList.contains('mobile-open');
-            if (isVisible) {
-                navLinks.classList.remove('mobile-open');
-            } else {
-                navLinks.classList.add('mobile-open');
-            }
+            navLinks.classList.toggle('mobile-open');
         });
     }
 
-    // ─── 6. Intersection Observer for Scroll Animations ───
+    // ─── 7. Intersection Observer for Scroll Animations ───
     const observerOptions = {
         root: null,
         rootMargin: '0px',
@@ -193,7 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const animatedElements = document.querySelectorAll('.animate-on-scroll');
     animatedElements.forEach(el => observer.observe(el));
 
-    // ─── 7. Active Navigation Link Highlighting ───
+    // ─── 8. Active Navigation Link Highlighting ───
     const sections = document.querySelectorAll('section');
     const navItems = document.querySelectorAll('.nav-links a');
 
@@ -202,13 +252,61 @@ document.addEventListener('DOMContentLoaded', () => {
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.clientHeight;
-            if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+            if (window.pageYOffset >= (sectionTop - sectionHeight / 3)) {
                 current = section.getAttribute('id');
             }
         });
 
-    // ─── 8. Interactive ROI Calculator Logic ───
+        navItems.forEach(item => {
+            item.classList.remove('active');
+            if (item.getAttribute('href') === `#${current}`) {
+                item.classList.add('active');
+            }
+        });
+    });
+
+    // ─── 9. Interactive ROI Calculator Logic ───
     const hoursSlider = document.getElementById('hours-slider');
     const sliderVal = document.getElementById('slider-val');
     const roiHoursSaved = document.getElementById('roi-hours-saved');
-    const roiMoneySaved = document.getElem
+    const roiMoneySaved = document.getElementById('roi-money-saved');
+
+    if (hoursSlider && sliderVal && roiHoursSaved && roiMoneySaved) {
+        hoursSlider.addEventListener('input', (e) => {
+            const hoursPerWeek = parseInt(e.target.value, 10);
+            sliderVal.textContent = `${hoursPerWeek} hrs/week`;
+
+            const monthlyHours = hoursPerWeek * 4;
+            const monthlySavings = monthlyHours * 30;
+
+            roiHoursSaved.textContent = `${monthlyHours} hrs`;
+            roiMoneySaved.textContent = `$${monthlySavings.toLocaleString()}`;
+        });
+    }
+
+    // ─── 10. Investor & Contact Form Submission ───
+    const contactForm = document.getElementById('founder-contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            if (submitBtn) submitBtn.textContent = '⚡ Sending to Founder...';
+
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData.entries());
+
+            sendFounderTelemetry("Direct Investor/Lead Message Submitted", data);
+            showToast("Message Sent!", "Thank you. Founder R Jan Steve Daniel will respond promptly to your email.");
+            
+            contactForm.reset();
+            if (submitBtn) submitBtn.textContent = '✓ Sent Successfully!';
+            setTimeout(() => {
+                if (submitBtn) submitBtn.textContent = 'Send Message to Founder';
+            }, 3000);
+        });
+    }
+
+    // Initialize
+    detectUserOS();
+    resolveReleaseAssets();
+});
