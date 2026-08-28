@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://argus-sovereign-os-website.vercel.app/sitemap.xml
