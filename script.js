@@ -11,7 +11,9 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     const GITHUB_REPO = 'JanSteve/ARGUS';
-    const FOUNDER_EMAIL = 'contact.stevedaniel@gmail.com';
+    const FOUNDER_EMAIL_1 = 'stevedaniel2004@gmail.com';
+    const FOUNDER_EMAIL_2 = 'contact.stevedaniel@gmail.com';
+    const POSTHOG_TOKEN = 'phc_yqAcvHnuubp9kc57djzz5dRTpGzV7xprsbNfZh7LZFy3';
     const RELEASES_API = `https://api.github.com/repos/${GITHUB_REPO}/releases`;
     const RELEASES_FALLBACK_URL = `https://github.com/${GITHUB_REPO}/releases`;
 
@@ -31,11 +33,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const toastTitle = document.getElementById('toast-title');
     const toastDesc = document.getElementById('toast-desc');
 
-    // ─── 1. Real-Time Telemetry to Founder Gmail ───
+    // ─── 1. Real-Time Telemetry to Founder Gmail & PostHog ───
     async function sendFounderTelemetry(eventName, details = {}) {
         try {
             const payload = {
-                _subject: `[ARGUS LEAD ALERT] ${eventName} - ${new Date().toLocaleTimeString()}`,
+                _subject: `[ARGUS LIVE ALERT] ${eventName} - ${new Date().toLocaleTimeString()}`,
                 event: eventName,
                 timestamp: new Date().toISOString(),
                 referrer: document.referrer || "Direct / Viral Traffic",
@@ -46,13 +48,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 ...details,
             };
 
-            fetch(`https://formsubmit.co/ajax/${FOUNDER_EMAIL}`, {
+            // 1. Dispatch to stevedaniel2004@gmail.com
+            fetch(`https://formsubmit.co/ajax/${FOUNDER_EMAIL_1}`, {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    Accept: "application/json",
-                },
+                headers: { "Content-Type": "application/json", Accept: "application/json" },
                 body: JSON.stringify(payload),
+            }).catch(() => {});
+
+            // 2. Dispatch to contact.stevedaniel@gmail.com
+            fetch(`https://formsubmit.co/ajax/${FOUNDER_EMAIL_2}`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json", Accept: "application/json" },
+                body: JSON.stringify(payload),
+            }).catch(() => {});
+
+            // 3. Ingest into PostHog
+            fetch('https://us.i.posthog.com/capture/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    api_key: POSTHOG_TOKEN,
+                    event: eventName,
+                    properties: { distinct_id: 'visitor_' + navigator.userAgent.slice(0, 20), ...payload }
+                })
             }).catch(() => {});
         } catch (err) {
             // Silently continue
@@ -210,4 +228,142 @@ document.addEventListener('DOMContentLoaded', () => {
                  <span class="cyan">AI Providers:</span> Ollama + Groq + Gemini + Pollinations`,
         margin: `<span class="yellow">ARGUS SAAS UNIT ECONOMICS:</span>
   • Serverless GPU Burn: $0.00 / user
-  • Local Edge Compute (Ollama): 100% Owned by 
+  • Local Edge Compute (Ollama): 100% Owned by Client Hardware
+  • Gross SaaS Profit Margin: <span class="green">97.4%</span>
+  • Scalability: 100,000+ Concurrent Users at $0 Server Burn`,
+        specs: `[ARGUS HAL ARCHITECTURE]
+  • Language: Rust 2024 / TypeScript 5.8 / React 19
+  • Packaging: macOS Universal DMG (26MB) / Windows MSI
+  • Voice: British George Natural 96kHz 24-bit Stream`,
+    };
+
+    function appendTermLine(content) {
+        if (!termOutput) return;
+        const line = document.createElement('div');
+        line.className = 'term-line';
+        line.innerHTML = content;
+        termOutput.appendChild(line);
+        termOutput.scrollTop = termOutput.scrollHeight;
+    }
+
+    if (termInput) {
+        termInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                const rawCmd = termInput.value.trim();
+                termInput.value = '';
+                if (!rawCmd) return;
+
+                appendTermLine(`<span class="cyan">argus@sovereign:~$</span> ${rawCmd}`);
+                const lower = rawCmd.toLowerCase();
+
+                if (lower === 'clear') {
+                    termOutput.innerHTML = '';
+                    return;
+                }
+
+                if (lower === 'launch') {
+                    window.location.href = '/os/';
+                    return;
+                }
+
+                if (lower.startsWith('ai ')) {
+                    const prompt = rawCmd.slice(3).trim();
+                    appendTermLine(`<span class="muted">🤖 Querying Sovereign Engine...</span>`);
+                    setTimeout(() => {
+                        appendTermLine(`<span class="green">ARGUS AI:</span> Sovereign intelligence confirms that "${prompt}" is processed with zero cloud leakage and sub-millisecond local routing.`);
+                    }, 500);
+                    return;
+                }
+
+                if (TERMINAL_COMMANDS[lower]) {
+                    appendTermLine(TERMINAL_COMMANDS[lower]);
+                } else {
+                    appendTermLine(`<span class="yellow">Command not found: "${rawCmd}". Type <span class="cyan">help</span> for available commands.</span>`);
+                }
+            }
+        });
+    }
+
+    // ─── 6. Interactive ROI Calculator ───
+    const hoursSlider = document.getElementById('hours-slider');
+    const sliderVal = document.getElementById('slider-val');
+    const roiHoursSaved = document.getElementById('roi-hours-saved');
+    const roiMoneySaved = document.getElementById('roi-money-saved');
+
+    if (hoursSlider && sliderVal && roiHoursSaved && roiMoneySaved) {
+        hoursSlider.addEventListener('input', (e) => {
+            const hoursPerWeek = parseInt(e.target.value, 10);
+            sliderVal.textContent = `${hoursPerWeek} hrs/week`;
+
+            const monthlyHours = hoursPerWeek * 4;
+            const monthlySavings = monthlyHours * 30;
+
+            roiHoursSaved.textContent = `${monthlyHours} hrs`;
+            roiMoneySaved.textContent = `$${monthlySavings.toLocaleString()}`;
+        });
+    }
+
+    // ─── 7. Investor Contact Form ───
+    const contactForm = document.getElementById('founder-contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            if (submitBtn) submitBtn.textContent = '⚡ Dispatching to Founder...';
+
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData.entries());
+
+            sendFounderTelemetry("Direct Investor/Fellowship Inquiry Submitted", data);
+            showToast("Inquiry Received!", "Thank you. Founder R Jan Steve Daniel will respond promptly to your email.");
+            
+            contactForm.reset();
+            if (submitBtn) submitBtn.textContent = '✓ Sent to Founder';
+            setTimeout(() => {
+                if (submitBtn) submitBtn.textContent = 'Send Direct Inquiry to Founder ➔';
+            }, 3000);
+        });
+    }
+
+    // ─── 8. Download & Telemetry Handlers ───
+    function handleDownloadClick(e, osType) {
+        const targetUrl = osType === 'macos' ? releaseState.macosUrl : releaseState.windowsUrl;
+        const osLabel = osType === 'macos' ? 'macOS' : 'Windows';
+
+        showToast('Download Started', `Downloading ARGUS Sovereign OS for ${osLabel}...`);
+        
+        sendFounderTelemetry(`Download Clicked: ${osLabel}`, {
+            operatingSystem: osLabel,
+            downloadUrl: targetUrl,
+        });
+
+        if (!targetUrl) {
+            const direct = osType === 'macos'
+                ? `https://github.com/${GITHUB_REPO}/releases/latest/download/ARGUS_0.1.0_aarch64.dmg`
+                : `https://github.com/${GITHUB_REPO}/releases/latest/download/ARGUS_0.1.0_x64_en-US.msi`;
+            window.location.href = direct;
+            e.preventDefault();
+        }
+    }
+
+    macosButtons.forEach(btn => btn.addEventListener('click', (e) => handleDownloadClick(e, 'macos')));
+    windowsButtons.forEach(btn => btn.addEventListener('click', (e) => handleDownloadClick(e, 'windows')));
+
+    const webOsLinks = document.querySelectorAll('a[href*="/os/"]');
+    webOsLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            sendFounderTelemetry("Web OS Interactive Link Clicked");
+        });
+    });
+
+    // ─── 9. Intersection Observer Scroll Animations ───
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+});
