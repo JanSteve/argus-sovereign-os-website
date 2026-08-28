@@ -211,22 +211,4 @@ document.addEventListener('DOMContentLoaded', () => {
     const hoursSlider = document.getElementById('hours-slider');
     const sliderVal = document.getElementById('slider-val');
     const roiHoursSaved = document.getElementById('roi-hours-saved');
-    const roiMoneySaved = document.getElementById('roi-money-saved');
-
-    if (hoursSlider && sliderVal && roiHoursSaved && roiMoneySaved) {
-        hoursSlider.addEventListener('input', (e) => {
-            const hoursPerWeek = parseInt(e.target.value, 10);
-            sliderVal.textContent = `${hoursPerWeek} hrs/week`;
-
-            const monthlyHours = hoursPerWeek * 4;
-            const monthlySavings = monthlyHours * 30; // $30/hr engineer value baseline
-
-            roiHoursSaved.textContent = `${monthlyHours} hrs`;
-            roiMoneySaved.textContent = `$${monthlySavings.toLocaleString()}`;
-        });
-    }
-
-    // Initialize
-    detectUserOS();
-    resolveReleaseAssets();
-});
+    const roiMoneySaved = document.getElem
