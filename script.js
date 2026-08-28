@@ -207,13 +207,24 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        navItems.forEach(item => {
-            item.classList.remove('active');
-            if (item.getAttribute('href').substring(1) === current) {
-                item.classList.add('active');
-            }
+    // ─── 8. Interactive ROI Calculator Logic ───
+    const hoursSlider = document.getElementById('hours-slider');
+    const sliderVal = document.getElementById('slider-val');
+    const roiHoursSaved = document.getElementById('roi-hours-saved');
+    const roiMoneySaved = document.getElementById('roi-money-saved');
+
+    if (hoursSlider && sliderVal && roiHoursSaved && roiMoneySaved) {
+        hoursSlider.addEventListener('input', (e) => {
+            const hoursPerWeek = parseInt(e.target.value, 10);
+            sliderVal.textContent = `${hoursPerWeek} hrs/week`;
+
+            const monthlyHours = hoursPerWeek * 4;
+            const monthlySavings = monthlyHours * 30; // $30/hr engineer value baseline
+
+            roiHoursSaved.textContent = `${monthlyHours} hrs`;
+            roiMoneySaved.textContent = `$${monthlySavings.toLocaleString()}`;
         });
-    });
+    }
 
     // Initialize
     detectUserOS();
