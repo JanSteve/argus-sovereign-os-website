@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ARGUS Sovereign OS — The World's First AI-Native Desktop Operating System</title>
-    <meta name="description" content="Reimagine computing with ARGUS Sovereign OS. Tony Stark-level autonomous copilot, 100% local data sovereignty, and British High-Definition neural voice.">
-    <meta name="keywords" content="ARGUS, Sovereign OS, AI Operating System, Desktop OS, Local AI, Ollama, Rust, Tauri, British Neural Voice, Jarvis">
+    <meta name="description" content="Experience ARGUS Sovereign OS. The world's first AI-native desktop operating system with 100% data sovereignty, sub-50ms British neural voice copilot, and MNC-grade security.">
+    <meta name="keywords" content="ARGUS, Sovereign OS, AI Operating System, Windows, macOS, Local AI, Ollama, Tauri, Rust, Neural Voice, MNC Security">
     <link rel="icon" type="image/svg+xml" href="assets/argus-logo.svg">
     
-    <!-- Open Graph / Social Meta -->
+    <!-- Open Graph / Meta -->
     <meta property="og:title" content="ARGUS Sovereign OS — The World's First AI-Native Desktop OS">
-    <meta property="og:description" content="100% Local Data Sovereignty, Sub-50ms British Neural Voice, and Autonomous Desktop Multi-Agent OS.">
-    <meta property="og:image" content="assets/day_10_architecture.jpg">
+    <meta property="og:description" content="100% Local Data Sovereignty, Sub-50ms British Neural Voice, and Autonomous Desktop Multi-Agent OS for Windows & macOS.">
     <meta property="og:url" content="https://argus-sovereign-os-website.vercel.app/">
     <meta property="og:type" content="website">
     
@@ -21,67 +20,49 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
-    <!-- JSON-LD Structured Data Schema for Google & Bing Indexing -->
+    <!-- Structured Data Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "ARGUS Sovereign OS",
-      "operatingSystem": "macOS, Windows, Web",
-      "applicationCategory": "DesktopEnvironmentApplication",
-      "description": "The World's First AI-Native Desktop Operating System with 100% Data Sovereignty, British Neural Voice Copilot, and Autonomous Multi-Agent Intelligence.",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "author": {
-        "@type": "Person",
-        "name": "R Jan Steve Daniel",
-        "email": "contact.stevedaniel@gmail.com"
-      }
+      "operatingSystem": "Windows 10/11, macOS, Web",
+      "applicationCategory": "OperatingSystem",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "author": { "@type": "Person", "name": "R Jan Steve Daniel", "email": "stevedaniel2004@gmail.com" }
     }
     </script>
 </head>
 <body>
-    <!-- Background Ambient Mesh Glow -->
-    <div class="ambient-glow-top"></div>
-    <div class="ambient-glow-center"></div>
 
-    <!-- Navigation Header -->
+    <!-- Apple-Style Frosted Glass Header -->
     <header class="navbar">
         <div class="container nav-container">
-            <div class="logo">
-                <img src="assets/argus-logo.svg" alt="ARGUS OS Logo" class="brand-logo-img" width="34" height="34">
+            <a href="#home" class="logo">
+                <img src="assets/argus-logo.svg" alt="ARGUS Logo" class="brand-logo-img">
                 <div class="brand-text">
                     <span class="logo-main">ARGUS</span>
                     <span class="logo-badge">SOVEREIGN</span>
                 </div>
-            </div>
+            </a>
             
             <nav class="nav-links">
-                <a href="#features">Features</a>
-                <a href="#voice-demo">Voice Copilot</a>
-                <a href="#interactive-preview">Live Web OS</a>
-                <a href="#architecture">Architecture</a>
-                <a href="#terminal">Web Terminal</a>
-                <a href="#pricing">Pricing</a>
+                <a href="#preview">Live Web OS</a>
+                <a href="#apps">Flagship Apps</a>
+                <a href="#security">MNC Security</a>
+                <a href="#voice">Voice Copilot</a>
                 <a href="#download">Download</a>
-                <a href="#contact">Investors</a>
+                <a href="#investors">Investors</a>
             </nav>
 
             <div class="nav-right">
-                <a href="/os/" class="nav-cta-btn" id="nav-launch-btn">
-                    <span class="btn-icon">⚡</span>
-                    <span>Launch Web OS</span>
+                <a href="/os/" target="_blank" class="nav-cta-btn">
+                    <span>⚡ Launch Web OS</span>
                 </a>
                 <a href="https://github.com/JanSteve/ARGUS" target="_blank" class="nav-gh-link">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                     <span>GitHub ⭐</span>
                 </a>
-                <button class="mobile-menu-btn" aria-label="Toggle Navigation">
-                    <span></span><span></span><span></span>
-                </button>
             </div>
         </div>
     </header>
@@ -89,473 +70,259 @@
     <main>
         <!-- Hero Section -->
         <section class="hero" id="home">
-            <div class="container hero-content animate-on-scroll">
+            <div class="container">
                 <div class="social-proof-badge">
                     <span class="pulse-dot"></span>
-                    <span>🔥 World's First AI-Native Desktop Operating System • v0.2.4</span>
+                    <span>World's First AI-Native Desktop Operating System • Production Ready</span>
                 </div>
                 
                 <h1 class="hero-title">
                     The World's First <br>
-                    <span class="gradient-text">AI-Native Sovereign OS</span>
+                    <span class="gradient-text">AI-Native Sovereign OS.</span>
                 </h1>
+                
                 <p class="hero-subtitle">
-                    100% Data Sovereignty • British Natural Voice Copilot • Full Autonomous Desktop Control
+                    Engineered for high-agency builders, researchers, and enterprises. 100% data sovereignty, sub-50ms British neural voice copilot, and MNC-grade cryptographic security for Windows & macOS.
                 </p>
-                <p class="hero-desc">
-                    Rebuilt from first principles for the AI era. ARGUS embeds deep autonomous intelligence directly into your desktop window manager, terminal, knowledge engine, and hardware telemetry.
-                </p>
-                
-                <div class="hero-ctas">
-                    <a href="/os/" class="btn btn-special" id="hero-launch-web-os">
-                        <span class="cta-icon">⚡</span>
-                        <div class="cta-text-group">
-                            <span class="btn-text">Launch Web OS (Interactive Demo)</span>
-                            <span class="btn-subtext">Zero install • Runs instantly in your browser</span>
-                        </div>
-                    </a>
-                    <a href="/downloads/ARGUS_macOS.dmg" download="ARGUS_macOS.dmg" class="btn btn-primary btn-download" data-os="macos">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 13v-2a10 10 0 0 0-10-10C6.48 1 2 5.48 2 11v2"></path><path d="M12 21a9.98 9.98 0 0 0 5-1.34"></path><path d="M12 21a9.98 9.98 0 0 1-5-1.34"></path><circle cx="12" cy="13" r="2"></circle></svg>
-                        <div class="cta-text-group">
-                            <span class="btn-text">Download macOS (.dmg)</span>
-                            <span class="btn-subtext">Apple Silicon & Intel Universal</span>
-                        </div>
-                    </a>
-                </div>
-                
-                <div class="hero-badges-row">
-                    <div class="hero-badge-pill">
-                        <span class="badge-dot green"></span>
-                        <span>100% Offline Local Ollama Compute</span>
-                    </div>
-                    <div class="hero-badge-pill">
-                        <span class="badge-dot cyan"></span>
-                        <span>Sub-50ms British Neural Voice</span>
-                    </div>
-                    <div class="hero-badge-pill">
-                        <span class="badge-dot purple"></span>
-                        <span>97% Profit Margin Serverless Scale</span>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Interactive Voice Copilot Tester Section -->
-        <section class="voice-demo-section" id="voice-demo">
-            <div class="container">
-                <div class="section-header animate-on-scroll">
-                    <div class="card-badge">ACOUSTIC NEURAL INTELLIGENCE</div>
-                    <h2>Experience Jarvis-Level British Voice</h2>
-                    <p>Test the natural conversational cadence and instant acoustic feedback live in your browser.</p>
-                </div>
+                <!-- Dual Action Download Buttons for Windows & macOS -->
+                <div class="hero-actions">
+                    <div class="hero-button-group">
+                        <!-- Direct Windows Download Button -->
+                        <a href="https://github.com/JanSteve/ARGUS/releases/download/v0.2.4/ARGUS_0.1.0_x64_en-US.msi" 
+                           class="btn-apple-windows" 
+                           id="btn-hero-windows" 
+                           data-os="windows"
+                           download="ARGUS_Setup.msi">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.401H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
+                            <span>Download for Windows (64-bit .msi)</span>
+                        </a>
 
-                <div class="voice-tester-card animate-on-scroll">
-                    <div class="voice-visualizer-hud">
-                        <div class="arc-ring-pulse">
-                            <div class="arc-core-inner">
-                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2">
-                                    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
-                                    <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
-                                    <line x1="12" y1="19" x2="12" y2="23"/>
-                                    <line x1="8" y1="23" x2="16" y2="23"/>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="voice-telemetry">
-                            <div class="telemetry-item">
-                                <span class="telem-label">Voice Pipeline:</span>
-                                <span class="telem-val" id="voice-persona-name">George (British Mature Baritone)</span>
-                            </div>
-                            <div class="telemetry-item">
-                                <span class="telem-label">Measured Latency:</span>
-                                <span class="telem-val cyan">31ms (Real-Time Stream)</span>
-                            </div>
-                            <div class="telemetry-item">
-                                <span class="telem-label">Failover State:</span>
-                                <span class="telem-val green">Unstoppable 4-Tier Cascade</span>
-                            </div>
-                        </div>
-                    </div>
+                        <!-- Direct macOS Download Button -->
+                        <a href="https://github.com/JanSteve/ARGUS/releases/download/v0.2.4/ARGUS_0.1.0_aarch64.dmg" 
+                           class="btn-apple-primary" 
+                           id="btn-hero-macos" 
+                           data-os="macos"
+                           download="ARGUS_macOS.dmg">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.62-.75 1.04-1.8 0.92-2.85-.9.04-1.99.6-2.64 1.35-.57.65-1.07 1.72-.94 2.74 1 .08 2.04-.49 2.66-1.24z"/></svg>
+                            <span>Download for macOS (.dmg)</span>
+                        </a>
 
-                    <div class="voice-phrase-selector">
-                        <label>Select a phrase to synthesize:</label>
-                        <select id="voice-phrase-select" class="custom-select">
-                            <option value="Good evening, sir. All core system telemetry nodes are running at optimal capacity. How may I assist you today?">"Good evening, sir. All core system telemetry nodes are optimal..."</option>
-                            <option value="Deploying autonomous multi-agent marketing sweep across venture capital channels. 100 partner inboxes targeted.">"Deploying autonomous multi-agent marketing sweep across venture capital..."</option>
-                            <option value="Warning: Incoming quantum query detected. Clamping temperature to 0.2 and ground checking via Wikipedia encyclopedic engine.">"Warning: Incoming query detected. Ground checking via Wikipedia..."</option>
-                            <option value="Data sovereignty active. Zero bytes transmitted to external clouds. Your machine is impenetrable.">"Data sovereignty active. Zero bytes transmitted to external clouds."</option>
-                        </select>
-                    </div>
-
-                    <div class="voice-actions">
-                        <button class="btn btn-primary btn-glow" id="btn-test-voice">
-                            <span>▶️ Play British Voice Sample</span>
-                        </button>
-                        <button class="btn btn-secondary" id="btn-stop-voice">
-                            <span>⏹️ Stop Playback</span>
-                        </button>
-                        <a href="/os/" class="btn btn-secondary">
-                            <span>Test Live in OS HUD ➔</span>
+                        <!-- Direct Web OS Interactive Launcher -->
+                        <a href="/os/" target="_blank" class="btn-apple-secondary" id="btn-hero-webos">
+                            <span>⚡ Try in Browser (Web OS)</span>
                         </a>
                     </div>
+
+                    <div class="hero-subnotes">
+                        <span>✓ Windows 10/11 & macOS Sonoma/Sequoia</span>
+                        <span>•</span>
+                        <span>✓ 100% Free & Open Source</span>
+                        <span>•</span>
+                        <span>✓ Zero Cloud Lock-In</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Interactive OS Showcase -->
-        <section class="os-showcase-section" id="interactive-preview">
+        <!-- Live Web OS Interactive Preview (MacBook Frame) -->
+        <section class="preview-section" id="preview">
             <div class="container">
-                <div class="section-header animate-on-scroll">
-                    <div class="card-badge">LIVE CLOUD ENVIRONMENT</div>
-                    <h2>Full Interactive OS Running in Browser</h2>
-                    <p>Click inside the desktop below to interact with the Arc-Reactor HUD, Chat Copilot, Terminal, and 15+ native apps.</p>
+                <div class="section-header">
+                    <span class="section-badge">INTERACTIVE OS RUNTIME</span>
+                    <h2 class="section-title">Experience ARGUS Directly in Your Browser</h2>
+                    <p class="section-desc">Fully functional window management, local AI pairing, holographic widgets, and built-in apps running at 60 FPS.</p>
                 </div>
-                
-                <div class="macbook-frame animate-on-scroll">
-                    <div class="macbook-header">
-                        <div class="traffic-lights">
+
+                <div class="macbook-wrapper">
+                    <div class="macbook-topbar">
+                        <div class="traffic-dots">
                             <span class="dot dot-red"></span>
                             <span class="dot dot-yellow"></span>
                             <span class="dot dot-green"></span>
                         </div>
-                        <div class="address-bar-mock">
-                            <span>🔒 https://argus-sovereign-os.local (ARGUS Kernel Active)</span>
+                        <div class="browser-bar">
+                            <span>🔒 https://argus-sovereign-os.local (ARGUS Sovereign Kernel Active)</span>
                         </div>
                         <a href="/os/" target="_blank" class="fullscreen-link">Open Fullscreen ↗</a>
                     </div>
-                    <iframe src="/os/" class="live-os-iframe" title="ARGUS Sovereign OS Live Web Desktop" loading="lazy"></iframe>
+                    <iframe src="/os/" class="web-os-frame" title="ARGUS Sovereign OS Live Web Desktop" loading="lazy"></iframe>
                 </div>
             </div>
         </section>
 
-        <!-- Next-Gen Showstopper Suite Showcase -->
-        <section class="features-section" id="showstopper-apps" style="padding: 60px 0; background: rgba(5,7,12,0.8);">
+        <!-- 4 Flagship Showstopper Apps Grid -->
+        <section class="apps-grid-section" id="apps">
             <div class="container">
-                <div class="section-header animate-on-scroll">
-                    <div class="card-badge">NEXT-GEN CAPABILITIES</div>
-                    <h2>4 Groundbreaking In-OS Showstopper Apps</h2>
-                    <p>Designed to impress investors, researchers at Sarvam AI & elite university fellowships.</p>
+                <div class="section-header">
+                    <span class="section-badge">BUILT-IN ECOSYSTEM</span>
+                    <h2 class="section-title">Four Flagship Showstopper Applications</h2>
+                    <p class="section-desc">Engineered to replace fragmented SaaS subscriptions with sovereign, zero-cost desktop workflows.</p>
                 </div>
 
-                <div class="features-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
-                    <div class="feature-card animate-on-scroll" style="border-color: rgba(139, 92, 246, 0.3);">
-                        <div class="feature-icon" style="background: rgba(139, 92, 246, 0.15); color: #c084fc; font-size: 24px;">🧠</div>
+                <div class="apps-grid">
+                    <!-- App 1: Neural Canvas -->
+                    <div class="app-card">
+                        <div class="app-icon-badge" style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6;">🧠</div>
                         <h3>Neural Mind Canvas</h3>
-                        <p>Infinite 2D spatial canvas with <strong>Live AI Node Chaining</strong>. Upstream reasoning flows directly into downstream architecture and database schemas.</p>
+                        <p>Infinite 2D spatial canvas with live AI node chaining. Connect thoughts, code blueprints, and architecture diagrams into continuous reasoning streams.</p>
+                        <span class="app-tag" style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6;">Spatial Intelligence</span>
                     </div>
 
-                    <div class="feature-card animate-on-scroll" style="border-color: rgba(6, 182, 212, 0.3);">
-                        <div class="feature-icon" style="background: rgba(6, 182, 212, 0.15); color: #38bdf8; font-size: 24px;">⚡</div>
+                    <!-- App 2: Code Studio -->
+                    <div class="app-card">
+                        <div class="app-icon-badge" style="background: rgba(6, 182, 212, 0.1); color: #06b6d4;">⚡</div>
                         <h3>Sovereign Code Studio</h3>
-                        <p>In-OS IDE with syntax highlighting, <strong>Live Sandboxed Preview</strong>, and AI Copilot. Build and run mini-apps inside ARGUS at 60 FPS.</p>
+                        <p>In-OS IDE with syntax highlighting, 60 FPS sandboxed preview, and AI pair programmer. Prototype web apps and reactive simulations in real time.</p>
+                        <span class="app-tag" style="background: rgba(6, 182, 212, 0.1); color: #06b6d4;">Developer Studio</span>
                     </div>
 
-                    <div class="feature-card animate-on-scroll" style="border-color: rgba(245, 158, 11, 0.3);">
-                        <div class="feature-icon" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; font-size: 24px;">🤖</div>
-                        <h3>Multi-Agent Swarm</h3>
-                        <p>4 autonomous agents (Market Alpha, System Beta, Growth Gamma, VC Delta) collaborate in parallel to generate a <strong>1-Click Startup Dossier</strong>.</p>
+                    <!-- App 3: Agent Swarm -->
+                    <div class="app-card">
+                        <div class="app-icon-badge" style="background: rgba(245, 158, 11, 0.1); color: #f59e0b;">🤖</div>
+                        <h3>Agent Swarm Orchestrator</h3>
+                        <p>Deploy 4 autonomous AI agents (Market Alpha, Systems Beta, Growth Gamma, VC Delta) in parallel with 1-click executive startup dossier export.</p>
+                        <span class="app-tag" style="background: rgba(245, 158, 11, 0.1); color: #f59e0b;">Autonomous Multi-Agent</span>
                     </div>
 
-                    <div class="feature-card animate-on-scroll" style="border-color: rgba(59, 130, 246, 0.3);">
-                        <div class="feature-icon" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa; font-size: 24px;">🌐</div>
-                        <h3>3D Cyber Globe Radar</h3>
-                        <p>Interactive 3D particle earth globe with live telemetry and <strong>sub-millisecond DNS ping diagnostics</strong> across global edge data centers.</p>
+                    <!-- App 4: Cyber Globe -->
+                    <div class="app-card">
+                        <div class="app-icon-badge" style="background: rgba(0, 113, 227, 0.1); color: #0071e3;">🌐</div>
+                        <h3>Cyber Globe Telemetry</h3>
+                        <p>3D particle earth globe with live edge latency diagnostics across Cloudflare, AWS, and Google Cloud data centers worldwide.</p>
+                        <span class="app-tag" style="background: rgba(0, 113, 227, 0.1); color: #0071e3;">Global Telemetry</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- High-Resolution Architectural & Feature Matrix Gallery -->
-        <section class="architecture-section" id="architecture">
+        <!-- Interactive Voice & MNC Security Showcase -->
+        <section class="interactive-showcase-section" id="security">
             <div class="container">
-                <div class="section-header animate-on-scroll">
-                    <div class="card-badge">DEEP SYSTEMS ENGINEERING</div>
-                    <h2>Technical Architecture & Feature Gallery</h2>
-                    <p>Explore the engineering blueprints that make ARGUS Sovereign OS unstoppable.</p>
-                </div>
+                <div class="showcase-two-col">
+                    <!-- Column 1: MNC Security Fortress -->
+                    <div class="showcase-box">
+                        <div class="section-badge">MNC SECURITY FORTRESS</div>
+                        <h3 style="font-size: 24px; font-weight: 700;">Impenetrable Zero-Trust Kernel</h3>
+                        <p style="font-size: 14px; color: var(--text-secondary);">
+                            Enterprise-grade security architecture designed to prevent data leakage, unauthorized telemetry, and credential theft.
+                        </p>
 
-                <!-- Tabbed Blueprint Visualizer -->
-                <div class="blueprint-viewer animate-on-scroll">
-                    <div class="blueprint-tabs">
-                        <button class="tab-btn active" data-img="assets/day_10_architecture.jpg" data-title="Core OS Architecture" data-desc="Tauri 2 Rust Kernel with Native IPC Bridge & Sub-Millisecond Event Bus">🏗️ Architecture</button>
-                        <button class="tab-btn" data-img="assets/day_15_voice_hud.jpg" data-title="British Neural Voice HUD" data-desc="Sub-50ms Latency Audio Spectrogram with Arc-Reactor Holographic Interface">🎙️ Voice HUD</button>
-                        <button class="tab-btn" data-img="assets/day_20_knowledge_graph.jpg" data-title="Wikipedia Knowledge Engine" data-desc="Zero-Hallucination Semantic Knowledge Graph with Live Real-Time Retrieval">🌐 Knowledge</button>
-                        <button class="tab-btn" data-img="assets/day_25_privacy_shield.jpg" data-title="Local Data Sovereignty" data-desc="100% Offline Ollama Execution with AES-256 Encrypted Storage Matrix">🛡️ Privacy Shield</button>
-                        <button class="tab-btn" data-img="assets/day_30_visionos_widgets.jpg" data-title="VisionOS 3.0 Widgets" data-desc="Frosted Glassmorphic Desktop Matrix with Crypto, Weather, & System Telemetry">✨ VisionOS UI</button>
-                        <button class="tab-btn" data-img="assets/day_35_zero_cost_scale.jpg" data-title="Zero-Cost Scale Architecture" data-desc="5-Tier Multi-Provider Circuit Breaker Load Balancer Generating 97% Profit Margin">📈 $0 Scale</button>
-                    </div>
-
-                    <div class="blueprint-display">
-                        <div class="blueprint-image-wrap">
-                            <img src="assets/day_10_architecture.jpg" alt="ARGUS System Blueprint" id="blueprint-main-img" class="blueprint-img">
-                        </div>
-                        <div class="blueprint-info">
-                            <h3 id="blueprint-title">Core OS Architecture Blueprint</h3>
-                            <p id="blueprint-desc">Tauri 2 Rust Kernel with Native IPC Bridge & Sub-Millisecond Event Bus. Zero cloud dependency, full hardware telemetry access.</p>
+                        <div style="display: flex; flex-direction: column; gap: 10px; font-size: 13px;">
+                            <div>🛡️ <strong>DNS over HTTPS (DoH):</strong> Cloudflare Zero-Trust edge encrypted DNS.</div>
+                            <div>🔐 <strong>k-Anonymity Breach Defense:</strong> Instant checks against 850M+ leaked passwords with zero credential transmission.</div>
+                            <div>🔒 <strong>SHA-256 Salted Vault:</strong> All user identities hashed locally using Web Crypto API.</div>
+                            <div>✉️ <strong>Founder Alert Webhook:</strong> Real-time security dispatches to founder Gmail addresses.</div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Interactive Homepage Terminal -->
-        <section class="terminal-section" id="terminal">
-            <div class="container">
-                <div class="section-header animate-on-scroll">
-                    <div class="card-badge">SOVEREIGN CLI</div>
-                    <h2>Command ARGUS Directly from Web Terminal</h2>
-                    <p>Type commands below to inspect system diagnostics, test AI responses, and query Wikipedia.</p>
-                </div>
+                    <!-- Column 2: Interactive British Voice Copilot -->
+                    <div class="showcase-box" id="voice">
+                        <div class="section-badge">NEURAL VOICE ENGINE</div>
+                        <h3 style="font-size: 24px; font-weight: 700;">Sub-50ms British Voice Synthesis</h3>
+                        <p style="font-size: 14px; color: var(--text-secondary);">
+                            Test ARGUS's high-definition British neural voice directly in your browser.
+                        </p>
 
-                <div class="web-terminal-box animate-on-scroll">
-                    <div class="term-header">
-                        <div class="traffic-lights">
-                            <span class="dot dot-red"></span>
-                            <span class="dot dot-yellow"></span>
-                            <span class="dot dot-green"></span>
-                        </div>
-                        <div class="term-title">argus@sovereign:~ (zsh)</div>
-                    </div>
-                    <div class="term-body" id="term-output">
-                        <div class="term-line prompt-line">⚡ Welcome to ARGUS Sovereign OS v0.2.4 Web Terminal</div>
-                        <div class="term-line muted">Type <span class="cyan">help</span> to view available system commands or <span class="cyan">status</span> for diagnostics.</div>
-                    </div>
-                    <div class="term-input-row">
-                        <span class="term-prompt">argus@sovereign:~$</span>
-                        <input type="text" id="term-input" placeholder="Type a command (e.g. status, neofetch, help, margin)..." autocomplete="off" spellcheck="false">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Competitive Comparison Matrix -->
-        <section class="comparison-section">
-            <div class="container">
-                <div class="section-header animate-on-scroll">
-                    <div class="card-badge">THE SOVEREIGN ADVANTAGE</div>
-                    <h2>How ARGUS Compares to Traditional OSes</h2>
-                    <p>Why modern creators are switching to the first AI-native desktop environment.</p>
-                </div>
-
-                <div class="comparison-table-wrap animate-on-scroll">
-                    <table class="comparison-table">
-                        <thead>
-                            <tr>
-                                <th>Capability</th>
-                                <th class="highlight-col">ARGUS Sovereign OS</th>
-                                <th>macOS Sequoia</th>
-                                <th>Windows 11 Copilot</th>
-                                <th>ChromeOS</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>AI Integration Level</strong></td>
-                                <td class="highlight-col"><span class="check">✓</span> Deep Kernel & Window Level</td>
-                                <td><span class="cross">✗</span> Siri / Widget Sidebar</td>
-                                <td><span class="cross">✗</span> Webview Sidebar</td>
-                                <td><span class="cross">✗</span> Browser Only</td>
-                            </tr>
-                            <tr>
-                                <td><strong>100% Local Data Privacy</strong></td>
-                                <td class="highlight-col"><span class="check">✓</span> Ollama Priority / Zero Leak</td>
-                                <td><span class="cross">✗</span> Cloud Compute Fallback</td>
-                                <td><span class="cross">✗</span> Microsoft Azure Cloud</td>
-                                <td><span class="cross">✗</span> 100% Google Cloud</td>
-                            </tr>
-                            <tr>
-                                <td><strong>British HD Neural Voice</strong></td>
-                                <td class="highlight-col"><span class="check">✓</span> Sub-50ms 4-Tier Pipeline</td>
-                                <td><span class="cross">✗</span> Robotic System Speech</td>
-                                <td><span class="cross">✗</span> Cloud Latency (>2s)</td>
-                                <td><span class="cross">✗</span> Basic TTS</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Zero-Install Interactive Web OS</strong></td>
-                                <td class="highlight-col"><span class="check">✓</span> Instant in Any Browser</td>
-                                <td><span class="cross">✗</span> Hardware Locked</td>
-                                <td><span class="cross">✗</span> Hardware Locked</td>
-                                <td><span class="cross">✗</span> Hardware Locked</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Autonomous Marketing Agents</strong></td>
-                                <td class="highlight-col"><span class="check">✓</span> Built-in 24/7 Engine</td>
-                                <td><span class="cross">✗</span> None</td>
-                                <td><span class="cross">✗</span> None</td>
-                                <td><span class="cross">✗</span> None</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
-
-        <!-- Interactive ROI Calculator -->
-        <section class="roi-section" id="roi">
-            <div class="container">
-                <div class="section-header animate-on-scroll">
-                    <div class="card-badge">PROFITABILITY METRICS</div>
-                    <h2>Calculate Your Productivity ROI</h2>
-                    <p>See how much engineering time and money ARGUS saves you every single month.</p>
-                </div>
-
-                <div class="roi-card animate-on-scroll">
-                    <div class="roi-controls">
-                        <label for="hours-slider" class="slider-label">
-                            <span>Hours spent weekly context-switching across AI browser tabs:</span>
-                            <span id="slider-val" class="slider-val-highlight">15 hrs/week</span>
-                        </label>
-                        <input type="range" id="hours-slider" min="5" max="40" value="15" class="range-slider">
-                    </div>
-
-                    <div class="roi-stats-grid">
-                        <div class="roi-stat-box">
-                            <div class="roi-stat-number" id="roi-hours-saved">60 hrs</div>
-                            <div class="roi-stat-desc">Monthly Time Reclaimed</div>
-                        </div>
-                        <div class="roi-stat-box">
-                            <div class="roi-stat-number" id="roi-money-saved">$1,800</div>
-                            <div class="roi-stat-desc">Monthly Engineering Value</div>
-                        </div>
-                        <div class="roi-stat-box">
-                            <div class="roi-stat-number" style="color: #10b981;">94.7x</div>
-                            <div class="roi-stat-desc">Annual ROI on Pro Tier</div>
+                        <div class="voice-tester">
+                            <div class="voice-input-row">
+                                <input type="text" id="voice-test-text" class="apple-input" value="Good evening, Steve. All sovereign systems are operating at peak efficiency." placeholder="Type phrase for voice synthesis...">
+                                <button class="apple-btn" id="voice-test-btn">▶ Speak</button>
+                            </div>
+                            <div class="voice-status" id="voice-status-display">
+                                🎙️ Status: Ready • Web Speech & Neural Bridge Active
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SaaS Pricing Section -->
-        <section class="pricing-section" id="pricing">
-            <div class="container">
-                <div class="section-header animate-on-scroll">
-                    <div class="card-badge">INVESTOR-APPROVED UNIT ECONOMICS</div>
-                    <h2>Transparent, High-Margin Pricing</h2>
-                    <p>Free offline forever. Upgrade to Pro when you demand infinite power.</p>
-                </div>
-
-                <div class="pricing-cards-grid">
-                    <!-- Community Tier -->
-                    <div class="price-card animate-on-scroll">
-                        <div class="tier-title">Community Edition</div>
-                        <div class="tier-cost">₹0 <span class="cost-period">/ Free Forever</span></div>
-                        <p class="tier-summary">For developers and students who want 100% offline local AI.</p>
-                        <ul class="tier-bullets">
-                            <li>✓ 100% Local Ollama Privacy</li>
-                            <li>✓ 15+ Native Desktop Apps</li>
-                            <li>✓ 20 Daily British Voice Commands</li>
-                            <li>✓ Universal Cmd+K Spotlight</li>
-                            <li>✓ Zero Cloud Data Transmission</li>
-                        </ul>
-                        <a href="/downloads/ARGUS_macOS.dmg" class="btn btn-secondary" style="width:100%; text-align:center;">Download Free (.dmg)</a>
-                    </div>
-
-                    <!-- Pro Tier (Featured) -->
-                    <div class="price-card card-pro animate-on-scroll" style="transition-delay: 100ms">
-                        <div class="popular-ribbon">MOST POPULAR</div>
-                        <div class="tier-title">ARGUS Pro</div>
-                        <div class="tier-cost">₹1,499 <span class="cost-period">/ month ($19/mo)</span></div>
-                        <p class="tier-summary">For founders, creators, and power users who need the ultimate Jarvis copilot.</p>
-                        <ul class="tier-bullets">
-                            <li>✓ <strong>Unlimited British Neural HD Voice</strong></li>
-                            <li>✓ Zero-Latency Cloud Neural Stream</li>
-                            <li>✓ 24/7 Autonomous Marketing Agents</li>
-                            <li>✓ AI Workspaces & Startup Command Hub</li>
-                            <li>✓ Mobile Phone Remote Access Bridge</li>
-                        </ul>
-                        <a href="/os/" class="btn btn-primary btn-glow" style="width:100%; text-align:center;">Get Pro License in Web OS</a>
-                    </div>
-
-                    <!-- Enterprise Tier -->
-                    <div class="price-card animate-on-scroll" style="transition-delay: 200ms">
-                        <div class="tier-title">Sovereign Enterprise</div>
-                        <div class="tier-cost">₹7,999 <span class="cost-period">/ month ($99/mo)</span></div>
-                        <p class="tier-summary">For startups and teams requiring dedicated cloud GPU nodes and custom models.</p>
-                        <ul class="tier-bullets">
-                            <li>✓ Everything in Pro</li>
-                            <li>✓ Custom Fine-Tuned LLM Weights</li>
-                            <li>✓ Dedicated Serverless GPU Node</li>
-                            <li>✓ Multi-User Team Collaboration</li>
-                            <li>✓ 24/7 Priority Founder SLA Support</li>
-                        </ul>
-                        <a href="mailto:contact.stevedaniel@gmail.com?subject=ARGUS%20Enterprise%20Inquiry" class="btn btn-secondary" style="width:100%; text-align:center;">Contact Enterprise</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Direct Download Section -->
+        <!-- Download Center Section -->
         <section class="download-section" id="download">
             <div class="container">
-                <div class="section-header animate-on-scroll">
-                    <div class="card-badge">CROSS-PLATFORM DEPLOYMENT</div>
-                    <h2>Deploy ARGUS on Your Hardware</h2>
-                    <p>Reclaim your personal computing today with native desktop installers.</p>
+                <div class="section-header">
+                    <span class="section-badge">INSTALLATION CENTER</span>
+                    <h2 class="section-title">Download ARGUS Sovereign OS</h2>
+                    <p class="section-desc">Choose your native operating system installer or run from source.</p>
                 </div>
-                <div class="download-grid">
-                    <div class="download-card animate-on-scroll" id="card-macos">
-                        <div class="card-badge">macOS</div>
-                        <h3>Apple Silicon & Intel</h3>
-                        <ul class="sys-reqs">
-                            <li>macOS 12.0 (Monterey) or later</li>
-                            <li>Apple Silicon (M1 / M2 / M3 / M4) & Intel Core</li>
-                            <li>8GB Unified RAM minimum</li>
-                            <li>Single-click native DMG installer</li>
-                        </ul>
-                        <a href="/downloads/ARGUS_macOS.dmg" download="ARGUS_macOS.dmg" class="btn btn-primary btn-download" data-os="macos">
-                            <span>Download for macOS (.dmg)</span>
-                        </a>
-                    </div>
-                    <div class="download-card animate-on-scroll" id="card-windows" style="transition-delay: 100ms">
-                        <div class="card-badge">Windows</div>
+
+                <div class="download-cards">
+                    <!-- Windows Card -->
+                    <div class="download-card">
+                        <div class="download-icon">🪟</div>
                         <h3>Windows 10 / 11</h3>
-                        <ul class="sys-reqs">
-                            <li>Windows 10 / 11 (64-bit)</li>
-                            <li>Intel Core / AMD Ryzen processor</li>
-                            <li>8GB RAM minimum</li>
-                            <li>Direct MSI / EXE package</li>
-                        </ul>
-                        <a href="https://github.com/JanSteve/ARGUS/releases" class="btn btn-primary btn-download" data-os="windows">
-                            <span>Download for Windows</span>
+                        <p>Installer for 64-bit Windows systems. Includes desktop shortcuts and local Ollama auto-bridge.</p>
+                        
+                        <a href="https://github.com/JanSteve/ARGUS/releases/download/v0.2.4/ARGUS_0.1.0_x64_en-US.msi" 
+                           class="btn-apple-windows" 
+                           style="width: 100%; justify-content: center;"
+                           data-os="windows"
+                           download="ARGUS_Setup.msi">
+                            <span>Download .msi Installer (64-bit)</span>
                         </a>
+
+                        <div class="install-cmd-box">
+                            winget install JanSteve.ARGUS
+                        </div>
+                    </div>
+
+                    <!-- macOS Card -->
+                    <div class="download-card">
+                        <div class="download-icon">🍏</div>
+                        <h3>macOS Sonoma / Sequoia</h3>
+                        <p>Universal binary for Apple Silicon (M1/M2/M3/M4) and Intel Macs.</p>
+                        
+                        <a href="https://github.com/JanSteve/ARGUS/releases/download/v0.2.4/ARGUS_0.1.0_aarch64.dmg" 
+                           class="btn-apple-primary" 
+                           style="width: 100%; justify-content: center;"
+                           data-os="macos"
+                           download="ARGUS_macOS.dmg">
+                            <span>Download .dmg (Universal)</span>
+                        </a>
+
+                        <div class="install-cmd-box">
+                            brew install --cask argus
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Investor Relations & Founder Contact Section -->
-        <section class="contact-section" id="contact">
-            <div class="container" style="max-width: 860px; text-align: center;">
-                <div class="section-header animate-on-scroll">
-                    <div class="card-badge">INVESTOR RELATIONS & FELLOWSHIPS</div>
-                    <h2>Connect Directly with Founder</h2>
-                    <p>Interested in Pre-Seed funding, AI fellowship collaboration (Stanford, MIT, IISc), or commercial deployment? Reach out directly.</p>
+        <!-- Investor Relations / Enterprise Contact Form -->
+        <section class="contact-section" id="investors">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">INVESTOR & ENTERPRISE RELATIONS</span>
+                    <h2 class="section-title">Connect with Founder & Lead Engineer</h2>
+                    <p class="section-desc">Inquire about seed investment, university research partnerships, or enterprise deployment.</p>
                 </div>
 
-                <div class="founder-contact-box animate-on-scroll">
-                    <div class="founder-email-badge">
-                        📧 Founder Direct Email: <a href="mailto:contact.stevedaniel@gmail.com" class="founder-mail-link">contact.stevedaniel@gmail.com</a>
-                    </div>
-
-                    <form id="founder-contact-form" class="contact-form-grid">
-                        <div class="form-row-2">
+                <div class="contact-card">
+                    <form id="investor-lead-form">
+                        <div class="form-grid">
                             <div>
-                                <label>Your Name / Organization</label>
-                                <input type="text" name="name" required placeholder="e.g. Marc Andreessen / Peak XV" class="form-input">
+                                <label for="lead-name">Your Full Name</label>
+                                <input type="text" id="lead-name" class="apple-input" placeholder="e.g. Satya Nadella / VC Partner" required>
                             </div>
                             <div>
-                                <label>Your Verified Email</label>
-                                <input type="email" name="email" required placeholder="e.g. partner@fund.com" class="form-input">
+                                <label for="lead-email">Official Email Address</label>
+                                <input type="email" id="lead-email" class="apple-input" placeholder="partner@fund.com" required>
+                            </div>
+                            <div class="form-full">
+                                <label for="lead-org">Organization / Venture Fund / University</label>
+                                <input type="text" id="lead-org" class="apple-input" placeholder="e.g. Sequoia Capital / Sarvam AI / MIT" required>
+                            </div>
+                            <div class="form-full">
+                                <label for="lead-msg">Inquiry Details</label>
+                                <textarea id="lead-msg" class="apple-input" rows="4" placeholder="Let's discuss seed investment, research collaboration, or enterprise pilot..."></textarea>
+                            </div>
+                            <div class="form-full">
+                                <button type="submit" class="btn-apple-primary" style="width: 100%; justify-content: center;" id="lead-submit-btn">
+                                    <span>🚀 Dispatch Direct Priority Message to Founder</span>
+                                </button>
                             </div>
                         </div>
-                        <div>
-                            <label>Inquiry Details / Investment Proposition</label>
-                            <textarea name="message" rows="4" required placeholder="We would love to discuss backing ARGUS Sovereign OS..." class="form-input form-textarea"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-glow" style="align-self: flex-start;">
-                            <span>Send Direct Inquiry to Founder ➔</span>
-                        </button>
                     </form>
                 </div>
             </div>
@@ -563,36 +330,31 @@
     </main>
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer">
         <div class="container footer-content">
-            <div class="footer-brand">
-                <div class="footer-logo">
-                    <img src="assets/argus-logo.svg" alt="ARGUS Logo" width="28" height="28">
-                    <h3>ARGUS Sovereign OS</h3>
-                </div>
-                <p>The world's first AI-native desktop operating system.</p>
-                <p class="footer-contact-txt">Founder Contact: <a href="mailto:contact.stevedaniel@gmail.com">contact.stevedaniel@gmail.com</a></p>
+            <div>
+                <strong>ARGUS Sovereign OS</strong> • Built by <strong>R Jan Steve Daniel</strong> (<a href="mailto:contact.stevedaniel@gmail.com">contact.stevedaniel@gmail.com</a> / <a href="mailto:stevedaniel2004@gmail.com">stevedaniel2004@gmail.com</a>)
             </div>
             <div class="footer-links">
-                <a href="/os/">Interactive Web OS</a>
-                <a href="https://github.com/JanSteve/ARGUS" target="_blank">GitHub Repository</a>
-                <a href="https://github.com/JanSteve/ARGUS/releases" target="_blank">Latest Releases</a>
-                <a href="mailto:contact.stevedaniel@gmail.com">Investor Fast-Track</a>
+                <a href="#home">Home</a>
+                <a href="#preview">Web OS</a>
+                <a href="#apps">Apps</a>
+                <a href="#download">Download</a>
+                <a href="https://github.com/JanSteve/ARGUS" target="_blank">GitHub</a>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 R Jan Steve Daniel. Engineered with Rust, Tauri 2, and Local AI Sovereignty.</p>
         </div>
     </footer>
 
-    <!-- Toast Notification Container -->
-    <div id="download-toast" class="toast hidden">
-        <div class="toast-content">
-            <strong id="toast-title">Notification</strong>
-            <p id="toast-desc">Message details...</p>
+    <!-- Toast Notification for Downloads -->
+    <div id="download-toast" class="download-toast">
+        <span id="toast-icon">⚡</span>
+        <div>
+            <strong id="toast-title">Download Initialized</strong>
+            <div id="toast-desc" style="font-size: 11px; opacity: 0.8;">Your installer is downloading...</div>
         </div>
     </div>
 
+    <!-- Interactive Script -->
     <script src="script.js"></script>
 </body>
 </html>
