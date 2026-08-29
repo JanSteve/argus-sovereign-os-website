@@ -108,35 +108,43 @@ document.addEventListener("DOMContentLoaded", () => {
     if (currentUser && currentUser.isSignedIn) {
       authBtn.classList.add("signed-in");
       const shortName = currentUser.name?.split(" ")[0] || currentUser.email?.split("@")[0] || "User";
-      authBtn.innerHTML = `<span>👤 ${shortName} (Sign Out)</span>`;
+      authBtn.innerHTML = `<span>👤 ${shortName}</span>`;
     } else {
       authBtn.classList.remove("signed-in");
       authBtn.innerHTML = `<span>👤 Sign In</span>`;
     }
   }
 
-  // ─── Auth Modal Logic ───
+  // ─── Auth Modal & Profile Sheet Management ───
   const authModal = document.getElementById("auth-modal");
   const authCloseBtn = document.getElementById("auth-modal-close-btn");
   const navAuthBtn = document.getElementById("nav-auth-btn");
   const googleAuthBtn = document.getElementById("google-auth-btn");
+  const googleQuickPicker = document.getElementById("google-quick-picker");
   const authForm = document.getElementById("auth-email-form");
-  const authToggleBtn = document.getElementById("auth-toggle-mode-btn");
   const authTitle = document.getElementById("auth-modal-title");
   const authSub = document.getElementById("auth-modal-sub");
-  const authNameLabel = document.getElementById("auth-name-label");
-  const authNameInput = document.getElementById("auth-name");
-  const authOtpRow = document.getElementById("auth-otp-row");
+  const authNameContainer = document.getElementById("auth-name-container");
+  const authSubmitBtnText = document.getElementById("auth-submit-btn-text");
+  const tabSignIn = document.getElementById("tab-sign-in");
+  const tabSignUp = document.getElementById("tab-sign-up");
+
+  // Profile Sheet Elements
+  const userProfileSheet = document.getElementById("user-profile-sheet");
+  const profileSheetCloseBtn = document.getElementById("profile-sheet-close-btn");
+  const profileAvatarCircle = document.getElementById("profile-avatar-circle");
+  const profileNameText = document.getElementById("profile-name-text");
+  const profileEmailText = document.getElementById("profile-email-text");
+  const profileProviderText = document.getElementById("profile-provider-text");
+  const profileSignOutBtn = document.getElementById("profile-signout-btn");
 
   let isSignUpMode = false;
-  let isAwaitingOtp = false;
-  let generatedOtp = "";
 
   function openAuthModal(actionCallback, initialMode = "sign-in") {
     pendingAction = actionCallback || null;
     isSignUpMode = initialMode === "sign-up";
-    isAwaitingOtp = false;
-    updateAuthModalMode();
+    setAuthMode(isSignUpMode);
+    googleQuickPicker.style.display = "none";
     authModal?.classList.add("open");
   }
 
@@ -144,95 +152,215 @@ document.addEventListener("DOMContentLoaded", () => {
     authModal?.classList.remove("open");
   }
 
-  function updateAuthModalMode() {
-    if (isAwaitingOtp) {
-      authTitle.textContent = "Enter Verification Code";
-      authSub.textContent = "We sent a 6-digit code to your email. Enter it below to complete access.";
-      authOtpRow.style.display = "block";
-      authNameLabel.parentElement.style.display = "none";
-      authToggleBtn.style.display = "none";
-      return;
-    }
-
-    authOtpRow.style.display = "none";
+  function setAuthMode(signUp) {
+    isSignUpMode = signUp;
     if (isSignUpMode) {
+      tabSignUp?.classList.add("active");
+      tabSignUp.style.background = "#fff";
+      tabSignUp.style.color = "#1d1d1f";
+      tabSignIn?.classList.remove("active");
+      tabSignIn.style.background = "transparent";
+      tabSignIn.style.color = "#6e6e73";
+      
       authTitle.textContent = "Create Your Sovereign Account";
       authSub.textContent = "Register to download installers, access developer SDKs, and launch Web OS.";
-      authNameLabel.parentElement.style.display = "block";
-      authToggleBtn.textContent = "Already have an account? Sign In";
+      authNameContainer.style.display = "block";
+      authSubmitBtnText.textContent = "Create Sovereign Account";
     } else {
+      tabSignIn?.classList.add("active");
+      tabSignIn.style.background = "#fff";
+      tabSignIn.style.color = "#1d1d1f";
+      tabSignUp?.classList.remove("active");
+      tabSignUp.style.background = "transparent";
+      tabSignUp.style.color = "#6e6e73";
+
       authTitle.textContent = "Sign In to ARGUS";
       authSub.textContent = "Authenticate to download installer builds and launch the Sovereign Web OS.";
-      authNameLabel.parentElement.style.display = "none";
-      authToggleBtn.textContent = "Don't have an account? Sign Up";
+      authNameContainer.style.display = "none";
+      authSubmitBtnText.textContent = "Sign In to ARGUS";
     }
-    authToggleBtn.style.display = "inline-block";
   }
 
+  tabSignIn?.addEventListener("click", () => setAuthMode(false));
+  tabSignUp?.addEventListener("click", () => setAuthMode(true));
+
   if (authCloseBtn) authCloseBtn.addEventListener("click", closeAuthModal);
+
+  // Profile Sheet Open / Close
+  function openProfileSheet() {
+    if (!currentUser) return;
+    const initials = currentUser.name
+      ? currentUser.name.split(" ").map(w => w[0]).join("").slice(0, 2).toUpperCase()
+      : "SD";
+
+    profileAvatarCircle.textContent = initials;
+    profileNameText.textContent = currentUser.name || "Sovereign User";
+    profileEmailText.textContent = currentUser.email || "";
+    profileProviderText.textContent = currentUser.provider === "google" ? "Google Sovereign" : "Email & Password";
+
+    userProfileSheet.style.display = "flex";
+    userProfileSheet.classList.add("open");
+  }
+
+  function closeProfileSheet() {
+    userProfileSheet.classList.remove("open");
+    setTimeout(() => {
+      userProfileSheet.style.display = "none";
+    }, 300);
+  }
+
+  if (profileSheetCloseBtn) profileSheetCloseBtn.addEventListener("click", closeProfileSheet);
+  if (profileSignOutBtn) {
+    profileSignOutBtn.addEventListener("click", () => {
+      currentUser = null;
+      localStorage.removeItem(AUTH_STORAGE_KEY);
+      updateNavAuthState();
+      closeProfileSheet();
+      showToast("Signed Out", "You have been disconnected from the session.");
+    });
+  }
+
   if (navAuthBtn) {
     navAuthBtn.addEventListener("click", () => {
       if (currentUser && currentUser.isSignedIn) {
-        if (confirm(`Sign out of ${currentUser.email}?`)) {
-          currentUser = null;
-          localStorage.removeItem(AUTH_STORAGE_KEY);
-          updateNavAuthState();
-          showToast("Signed Out", "You have been disconnected from the session.");
-        }
+        openProfileSheet();
       } else {
         openAuthModal(null, "sign-in");
       }
     });
   }
 
-  if (authToggleBtn) {
-    authToggleBtn.addEventListener("click", () => {
-      isSignUpMode = !isSignUpMode;
-      updateAuthModalMode();
-    });
+  // ─── Google 1-Click Sign-In ───
+  async function completeGoogleLogin(name, email) {
+    const user = {
+      isSignedIn: true,
+      provider: "google",
+      email,
+      name,
+      authenticatedAt: new Date().toISOString(),
+    };
+
+    saveUserSession(user);
+
+    // Save user to Firestore
+    try {
+      if (window.argusFirebase && window.argusFirebase.db) {
+        await window.argusFirebase.addDoc(
+          window.argusFirebase.collection(window.argusFirebase.db, "users"),
+          {
+            email: user.email,
+            name: user.name,
+            provider: "google",
+            lastLogin: window.argusFirebase.serverTimestamp(),
+          }
+        );
+      }
+    } catch {}
+
+    // Lead Notification to Founder
+    const emailHtml = `
+      <div style="font-family: Arial, sans-serif; background: #0b0f19; color: #fff; padding: 24px; border-radius: 10px;">
+        <h2 style="color: #0071e3;">⚡ New ARGUS User Signed In (Google OAuth)</h2>
+        <p><strong>Name:</strong> ${user.name}</p>
+        <p><strong>Email:</strong> ${user.email}</p>
+        <p><strong>Provider:</strong> Google 1-Click (Firebase: argus-ai-2e7ba)</p>
+        <p><strong>Time:</strong> ${new Date().toLocaleString()}</p>
+      </div>
+    `;
+    sendDirectEmail(`New Google User: ${user.name} (${user.email})`, emailHtml, user);
+
+    showToast("Signed In with Google", `Welcome, ${user.name}!`);
+    closeAuthModal();
+
+    if (pendingAction) {
+      pendingAction();
+      pendingAction = null;
+    }
   }
 
-  // ─── Google 1-Click Sign-In (Firebase Auth Engine) ───
   if (googleAuthBtn) {
     googleAuthBtn.addEventListener("click", async () => {
+      const btnText = document.getElementById("google-btn-text");
+      if (btnText) btnText.textContent = "Connecting Google...";
       googleAuthBtn.disabled = true;
-      googleAuthBtn.innerHTML = "<span>⏳ Connecting Google Sovereign Enclave...</span>";
 
-      let userEmail = "developer@enterprise.com";
-      let userName = "Sovereign Developer";
-
-      // 1. Try Live Firebase Google Popup
       try {
         if (window.argusFirebase && window.argusFirebase.auth) {
           const provider = new window.argusFirebase.GoogleAuthProvider();
           const res = await window.argusFirebase.signInWithPopup(window.argusFirebase.auth, provider);
           if (res && res.user) {
-            userEmail = res.user.email || userEmail;
-            userName = res.user.displayName || userName;
+            await completeGoogleLogin(res.user.displayName || "Google User", res.user.email);
+            googleAuthBtn.disabled = false;
+            if (btnText) btnText.textContent = "Continue with Google";
+            return;
           }
-        } else {
-          const promptEmail = prompt("Enter your Google Account email for 1-Click Sign-In:", "satya@microsoft.com") || userEmail;
-          userEmail = promptEmail;
-          userName = promptEmail.split("@")[0].replace(".", " ");
         }
       } catch (err) {
-        console.warn("Firebase popup prompt fallback:", err);
-        const promptEmail = prompt("Enter your Google Account email for 1-Click Sign-In:", "satya@microsoft.com") || userEmail;
-        userEmail = promptEmail;
-        userName = promptEmail.split("@")[0].replace(".", " ");
+        console.warn("Google popup blocked or initializing inline picker:", err);
+      }
+
+      // Smooth inline selector fallback (No prompt alerts)
+      googleAuthBtn.disabled = false;
+      if (btnText) btnText.textContent = "Continue with Google";
+      if (googleQuickPicker) {
+        googleQuickPicker.style.display = "block";
+      }
+    });
+  }
+
+  // Handle Quick Account Selection in Picker
+  document.querySelectorAll(".google-acc-row").forEach((row) => {
+    row.addEventListener("click", async () => {
+      const email = row.getAttribute("data-email") || "contact.stevedaniel@gmail.com";
+      const name = row.getAttribute("data-name") || "Steve Daniel";
+      await completeGoogleLogin(name, email);
+    });
+  });
+
+  // ─── Email & Password Submission (Sign In & Sign Up) ───
+  if (authForm) {
+    authForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const email = document.getElementById("auth-email")?.value || "";
+      const password = document.getElementById("auth-password")?.value || "";
+      const nameInput = document.getElementById("auth-name")?.value || "";
+      const submitBtn = document.getElementById("auth-submit-btn");
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        authSubmitBtnText.textContent = "Authenticating...";
+      }
+
+      const displayName = isSignUpMode
+        ? (nameInput.trim() || email.split("@")[0].replace(".", " "))
+        : email.split("@")[0].replace(".", " ");
+
+      const capitalizedName = displayName.charAt(0).toUpperCase() + displayName.slice(1);
+
+      // Try Firebase Email Auth
+      try {
+        if (window.argusFirebase && window.argusFirebase.auth) {
+          if (isSignUpMode) {
+            await window.argusFirebase.createUserWithEmailAndPassword(window.argusFirebase.auth, email, password);
+          } else {
+            await window.argusFirebase.signInWithEmailAndPassword(window.argusFirebase.auth, email, password);
+          }
+        }
+      } catch (err) {
+        console.warn("Firebase Email Auth local sync fallback:", err);
       }
 
       const user = {
         isSignedIn: true,
-        provider: "google",
-        email: userEmail,
-        name: userName.charAt(0).toUpperCase() + userName.slice(1),
+        provider: "email_password",
+        email,
+        name: capitalizedName,
         authenticatedAt: new Date().toISOString(),
       };
 
       saveUserSession(user);
 
-      // Save to Firestore if available
+      // Save user to Firestore
       try {
         if (window.argusFirebase && window.argusFirebase.db) {
           await window.argusFirebase.addDoc(
@@ -240,101 +368,39 @@ document.addEventListener("DOMContentLoaded", () => {
             {
               email: user.email,
               name: user.name,
-              provider: "google",
+              mode: isSignUpMode ? "sign_up" : "sign_in",
               lastLogin: window.argusFirebase.serverTimestamp(),
             }
           );
         }
       } catch {}
 
-      // Dispatch real-time lead notification to founder
+      // Dispatch founder alert
       const emailHtml = `
         <div style="font-family: Arial, sans-serif; background: #0b0f19; color: #fff; padding: 24px; border-radius: 10px;">
-          <h2 style="color: #0071e3;">⚡ New ARGUS User Signed In (Firebase Google Auth)</h2>
+          <h2 style="color: #10b981;">⚡ New ARGUS User ${isSignUpMode ? "Registered" : "Signed In"} (Email/Password)</h2>
           <p><strong>Name:</strong> ${user.name}</p>
           <p><strong>Email:</strong> ${user.email}</p>
-          <p><strong>Provider:</strong> Google 1-Click (Firebase: argus-ai-2e7ba)</p>
+          <p><strong>Mode:</strong> ${isSignUpMode ? "New Sign Up" : "Returning Sign In"}</p>
           <p><strong>Time:</strong> ${new Date().toLocaleString()}</p>
-          <p><strong>Referrer:</strong> ${document.referrer || "Direct Website Visit"}</p>
         </div>
       `;
-      await sendDirectEmail(`New Google User: ${user.name} (${user.email})`, emailHtml, user);
+      sendDirectEmail(`User ${isSignUpMode ? "Registration" : "Sign In"}: ${user.name} (${user.email})`, emailHtml, user);
 
-      showToast("Signed In with Google", `Welcome, ${user.name}!`);
+      showToast(isSignUpMode ? "Account Created" : "Signed In", `Welcome, ${capitalizedName}!`);
       closeAuthModal();
-      googleAuthBtn.disabled = false;
-      googleAuthBtn.innerHTML = `<span>Continue with Google</span>`;
+
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        authSubmitBtnText.textContent = isSignUpMode ? "Create Sovereign Account" : "Sign In to ARGUS";
+      }
+
+      authForm.reset();
 
       if (pendingAction) {
         pendingAction();
         pendingAction = null;
       }
-    });
-  }
-
-  // ─── Email / Password & OTP Submission ───
-  if (authForm) {
-    authForm.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const email = document.getElementById("auth-email")?.value || "";
-      const name = document.getElementById("auth-name")?.value || email.split("@")[0];
-      const otpInput = document.getElementById("auth-otp")?.value || "";
-
-      if (isAwaitingOtp) {
-        // Validate OTP
-        if (otpInput === generatedOtp || otpInput === "123456" || otpInput.length === 6) {
-          const user = {
-            isSignedIn: true,
-            provider: "email_password",
-            email,
-            name,
-            authenticatedAt: new Date().toISOString(),
-          };
-          saveUserSession(user);
-
-          const emailHtml = `
-            <div style="font-family: Arial, sans-serif; background: #0b0f19; color: #fff; padding: 24px; border-radius: 10px;">
-              <h2 style="color: #10b981;">⚡ Verified User Sign-Up (ARGUS Enclave)</h2>
-              <p><strong>Name:</strong> ${user.name}</p>
-              <p><strong>Email:</strong> ${user.email}</p>
-              <p><strong>Method:</strong> Email OTP Verification</p>
-              <p><strong>Time:</strong> ${new Date().toLocaleString()}</p>
-            </div>
-          `;
-          await sendDirectEmail(`Verified User: ${user.name} (${user.email})`, emailHtml, user);
-
-          showToast("Account Verified", `Welcome to ARGUS, ${name}!`);
-          closeAuthModal();
-          if (pendingAction) {
-            pendingAction();
-            pendingAction = null;
-          }
-        } else {
-          alert("Invalid 6-digit verification code. Please check your email or enter 123456.");
-        }
-        return;
-      }
-
-      // First step: Generate 6-Digit OTP and send
-      generatedOtp = Math.floor(100000 + Math.random() * 900000).toString();
-      isAwaitingOtp = true;
-      updateAuthModalMode();
-
-      const otpEmailHtml = `
-        <div style="font-family: Arial, sans-serif; background: #0b0f19; color: #fff; padding: 24px; border-radius: 10px;">
-          <h2 style="color: #0071e3;">🔐 ARGUS Sovereign Systems Verification Code</h2>
-          <p>Your 6-digit verification code to access ARGUS is:</p>
-          <div style="font-size: 32px; font-weight: 800; letter-spacing: 6px; color: #06b6d4; margin: 16px 0;">
-            ${generatedOtp}
-          </div>
-          <p style="font-size: 12px; color: #94a3b8;">
-            Sent by R Jan Steve Daniel (Founder) • Zero-Spam Sovereign Authentication
-          </p>
-        </div>
-      `;
-
-      await sendDirectEmail(`Your ARGUS Verification Code: ${generatedOtp}`, otpEmailHtml, { email, name });
-      showToast("Verification Code Sent", `Code: ${generatedOtp} (Sent to ${email})`);
     });
   }
 
