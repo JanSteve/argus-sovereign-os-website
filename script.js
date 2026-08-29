@@ -671,6 +671,87 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // ─── 5. 21st.dev Interactive Spotlight Effect ───
+  const spotlightCards = document.querySelectorAll(".spotlight-card, .app-card");
+  spotlightCards.forEach((card) => {
+    card.addEventListener("mousemove", (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.background = `radial-gradient(400px circle at ${x}px ${y}px, rgba(0, 113, 227, 0.15), var(--bg-card))`;
+    });
+
+    card.addEventListener("mouseleave", () => {
+      card.style.background = "var(--bg-card)";
+    });
+  });
+
+  // ─── 6. 21st.dev Interactive Terminal Tabs ───
+  const termTabBtns = document.querySelectorAll(".term-tab-btn");
+  const termOutputBox = document.getElementById("term-output-box");
+
+  const terminalOutputs = {
+    security: `
+      <div><span style="color: #10b981;">argus@sovereign:~$</span> argus security status</div>
+      <div style="color: #cbd5e1; margin-top: 4px;">✓ Agent Firewall: ACTIVE (Zero-Trust Interceptor)</div>
+      <div style="color: #cbd5e1;">✓ Luhn Payment Shield: ACTIVE (13-19 Digit Validator)</div>
+      <div style="color: #cbd5e1;">✓ Code Fortress: ENFORCED (Zero Outbound Source Code)</div>
+      <div style="color: #38bdf8; margin-top: 4px;">Status: 100% Enclave Sovereignty Confirmed.</div>
+    `,
+    dlp: `
+      <div><span style="color: #10b981;">argus@sovereign:~$</span> argus dlp inspect "Card: 4532 0150 0000 0000 | Stripe: sk_live_••••"</div>
+      <div style="color: #f87171; margin-top: 4px;">⚠️ [DLP TRIGGER]: Valid Visa Card (Luhn Passed) detected!</div>
+      <div style="color: #34d399;">✓ Action: Masked to ••••-••••-••••-0000</div>
+      <div style="color: #34d399;">✓ Secret: Stripe Key Redacted to [REDACTED_STRIPE]</div>
+      <div style="color: #38bdf8; margin-top: 4px;">Outcome: Outbound Transmission BLOCKED • Zero Data Leak.</div>
+    `,
+    vault: `
+      <div><span style="color: #10b981;">argus@sovereign:~$</span> argus vault test --algorithm AES-256-GCM</div>
+      <div style="color: #cbd5e1; margin-top: 4px;">✓ Deriving Key: PBKDF2 (100,000 iterations, SHA-256)</div>
+      <div style="color: #cbd5e1;">✓ Encrypting Payload: 256-bit AES-GCM (12-byte IV)</div>
+      <div style="color: #34d399;">✓ Decryption Verification: PASSED (Zero-Knowledge Verified)</div>
+      <div style="color: #38bdf8; margin-top: 4px;">Storage: Stored in local enclave • 30s auto-wipe clipboard ready.</div>
+    `,
+  };
+
+  termTabBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      termTabBtns.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      const cmd = btn.getAttribute("data-cmd");
+      if (cmd && terminalOutputs[cmd] && termOutputBox) {
+        termOutputBox.innerHTML = terminalOutputs[cmd];
+      }
+    });
+  });
+
+  // ─── 7. 21st.dev FAQ Accordion ───
+  const faqItems = document.querySelectorAll(".faq-item");
+  faqItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      const answer = item.querySelector(".faq-answer");
+      const icon = item.querySelector(".faq-icon");
+      if (!answer) return;
+
+      const isOpen = answer.style.display === "block";
+      // Close others
+      faqItems.forEach((other) => {
+        const otherAns = other.querySelector(".faq-answer");
+        const otherIcon = other.querySelector(".faq-icon");
+        if (otherAns) otherAns.style.display = "none";
+        if (otherIcon) otherIcon.textContent = "+";
+      });
+
+      if (!isOpen) {
+        answer.style.display = "block";
+        if (icon) icon.textContent = "−";
+      } else {
+        answer.style.display = "none";
+        if (icon) icon.textContent = "+";
+      }
+    });
+  });
+
   // Initialize state
   loadUserSession();
 });

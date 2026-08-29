@@ -3,30 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ARGUS Sovereign OS — The World's First AI-Native Desktop Operating System</title>
-    <meta name="description" content="Experience ARGUS Sovereign OS. The world's first AI-native desktop operating system with 100% data sovereignty, sub-50ms British neural voice copilot, and MNC-grade security.">
-    <meta name="keywords" content="ARGUS, Sovereign OS, AI Operating System, Windows, macOS, Local AI, Ollama, Tauri, Rust, Neural Voice, MNC Security">
-    <link rel="icon" type="image/svg+xml" href="assets/argus-logo.svg">
+    <title>ARGUS Sovereign OS — The Sovereign Execution Runtime for AI</title>
+    <meta name="description" content="ARGUS Sovereign OS is the world's first AI-native execution runtime with zero-knowledge AES-256-GCM Vault, Code Fortress DLP payment armor, and governed tool fabric. 100% data sovereignty.">
+    <meta name="keywords" content="ARGUS, Sovereign OS, AI Desktop, Agent Runtime, Data Sovereignty, Local LLM, Ollama, Tauri, React, Computer Use AI, AES-256 Vault">
+    <meta name="author" content="R Jan Steve Daniel">
     
-    <!-- Open Graph / Meta -->
-    <meta property="og:title" content="ARGUS Sovereign OS — The World's First AI-Native Desktop OS">
-    <meta property="og:description" content="100% Local Data Sovereignty, Sub-50ms British Neural Voice, and Autonomous Desktop Multi-Agent OS for Windows & macOS.">
-    <meta property="og:url" content="https://argus-sovereign-os-website.vercel.app/">
+    <!-- Open Graph / Social Meta -->
+    <meta property="og:title" content="ARGUS Sovereign OS — The Sovereign Execution Runtime for AI">
+    <meta property="og:description" content="AI with the power to act on your computer — without giving up control. Zero cloud lock-in, 100% data sovereignty.">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://argus-sovereign-os-website.vercel.app/">
     
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/argus-logo.svg">
     <link rel="stylesheet" href="style.css">
 
-    <!-- Structured Data Schema -->
+    <!-- Structured Data Schema for Search Engines -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "ARGUS Sovereign OS",
-      "operatingSystem": "Windows 10/11, macOS, Web",
+      "operatingSystem": "Windows, macOS",
       "applicationCategory": "OperatingSystem",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
       "author": { "@type": "Person", "name": "R Jan Steve Daniel", "email": "stevedaniel2004@gmail.com" }
@@ -73,9 +71,9 @@
 </head>
 <body>
 
-    <!-- Apple-Style Frosted Glass Header -->
+    <!-- 21st.dev Floating Glassmorphism Header -->
     <header class="navbar">
-        <div class="container nav-container">
+        <div class="nav-container">
             <a href="#home" class="logo">
                 <img src="assets/argus-logo.svg" alt="ARGUS Logo" class="brand-logo-img">
                 <div class="brand-text">
@@ -86,9 +84,10 @@
             
             <nav class="nav-links">
                 <a href="#preview">Live Web OS</a>
-                <a href="#apps">Flagship Apps</a>
-                <a href="#security">MNC Security</a>
-                <a href="#voice">Voice Copilot</a>
+                <a href="#architecture">Architecture</a>
+                <a href="#bento">Ecosystem</a>
+                <a href="#terminal">DLP Terminal</a>
+                <a href="#faq">FAQ</a>
                 <a href="#download">Download</a>
                 <a href="#investors">Investors</a>
             </nav>
@@ -101,7 +100,7 @@
                     <span>⚡ Launch Web OS</span>
                 </a>
                 <a href="https://github.com/JanSteve/ARGUS" target="_blank" class="nav-gh-link">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                     <span>GitHub ⭐</span>
                 </a>
             </div>
@@ -114,7 +113,7 @@
             <div class="container">
                 <div class="social-proof-badge">
                     <span class="pulse-dot"></span>
-                    <span>The Sovereign Execution Environment for AI • Governed by Permission Kernel</span>
+                    <span>The Sovereign Execution Environment for AI • AES-256 Enclave Active</span>
                 </div>
                 
                 <h1 class="hero-title">
@@ -123,10 +122,10 @@
                 </h1>
                 
                 <p class="hero-subtitle">
-                    ARGUS transforms AI from a passive chatbot into a controlled execution runtime: <strong>Understand → Plan → Authorize → Execute + Verify → Remember → Report</strong>. 100% Data Sovereignty with zero cloud lock-in for Windows & macOS.
+                    ARGUS transforms AI from a passive chatbot into an accountable, governed computer execution runtime: <strong>Understand → Plan → Authorize → Sandboxed Tool Fabric → Independent Verification → Remember</strong>. 100% Data Sovereignty with zero cloud lock-in.
                 </p>
 
-                <!-- Dual Action Download Buttons for Windows & macOS -->
+                <!-- 21st.dev Shimmer Action Buttons -->
                 <div class="hero-actions">
                     <div class="hero-button-group">
                         <!-- Direct Windows Download Button -->
@@ -136,7 +135,7 @@
                            data-os="windows"
                            download="ARGUS_Setup.msi">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.401H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
-                            <span>Download for Windows (64-bit .msi)</span>
+                            <span>Download for Windows (.msi)</span>
                         </a>
 
                         <!-- Direct macOS Download Button -->
@@ -158,9 +157,9 @@
                     <div class="hero-subnotes">
                         <span>✓ Windows 10/11 & macOS Sonoma/Sequoia</span>
                         <span>•</span>
-                        <span>✓ 100% Free & Open Source</span>
+                        <span>✓ Zero Cloud Leakage</span>
                         <span>•</span>
-                        <span>✓ Zero Cloud Lock-In</span>
+                        <span>✓ Luhn Payment DLP Guard Active</span>
                     </div>
                 </div>
             </div>
@@ -170,9 +169,9 @@
         <section class="preview-section" id="preview">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-badge">INTERACTIVE OS RUNTIME</span>
+                    <span class="section-badge">60 FPS INTERACTIVE OS RUNTIME</span>
                     <h2 class="section-title">Experience ARGUS Directly in Your Browser</h2>
-                    <p class="section-desc">Fully functional window management, local AI pairing, holographic widgets, and built-in apps running at 60 FPS.</p>
+                    <p class="section-desc">Full window management, sandboxed tool fabric, AES-256 Vault, and autonomous agent loops running live.</p>
                 </div>
 
                 <div class="macbook-wrapper">
@@ -183,7 +182,7 @@
                             <span class="dot dot-green"></span>
                         </div>
                         <div class="browser-bar">
-                            <span>🔒 https://argus-sovereign-os.local (ARGUS Sovereign Kernel Active)</span>
+                            <span>🔒 https://argus-sovereign-os.local (Sovereign Kernel Active)</span>
                         </div>
                         <a href="/os/" target="_blank" class="fullscreen-link">Open Fullscreen ↗</a>
                     </div>
@@ -192,87 +191,199 @@
             </div>
         </section>
 
-        <!-- 4 Flagship Showstopper Apps Grid -->
-        <section class="apps-grid-section" id="apps">
+        <!-- 21st.dev Core Architecture Flow Beam -->
+        <section class="interactive-showcase-section" id="architecture" style="padding: 60px 0;">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-badge">BUILT-IN ECOSYSTEM</span>
-                    <h2 class="section-title">Four Flagship Showstopper Applications</h2>
-                    <p class="section-desc">Engineered to replace fragmented SaaS subscriptions with sovereign, zero-cost desktop workflows.</p>
+                    <span class="section-badge">GOVERNANCE ENGINE ARCHITECTURE</span>
+                    <h2 class="section-title">The Sovereign AI Execution Loop</h2>
+                    <p class="section-desc">Every action is inspected, gated, and cryptographically recorded before touching your files or network.</p>
                 </div>
 
-                <div class="apps-grid">
-                    <!-- App 1: Neural Canvas -->
-                    <div class="app-card">
-                        <div class="app-icon-badge" style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6;">🧠</div>
-                        <h3>Neural Mind Canvas</h3>
-                        <p>Infinite 2D spatial canvas with live AI node chaining. Connect thoughts, code blueprints, and architecture diagrams into continuous reasoning streams.</p>
-                        <span class="app-tag" style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6;">Spatial Intelligence</span>
-                    </div>
-
-                    <!-- App 2: Code Studio -->
-                    <div class="app-card">
-                        <div class="app-icon-badge" style="background: rgba(6, 182, 212, 0.1); color: #06b6d4;">⚡</div>
-                        <h3>Sovereign Code Studio</h3>
-                        <p>In-OS IDE with syntax highlighting, 60 FPS sandboxed preview, and AI pair programmer. Prototype web apps and reactive simulations in real time.</p>
-                        <span class="app-tag" style="background: rgba(6, 182, 212, 0.1); color: #06b6d4;">Developer Studio</span>
-                    </div>
-
-                    <!-- App 3: Agent Swarm -->
-                    <div class="app-card">
-                        <div class="app-icon-badge" style="background: rgba(245, 158, 11, 0.1); color: #f59e0b;">🤖</div>
-                        <h3>Agent Swarm Orchestrator</h3>
-                        <p>Deploy 4 autonomous AI agents (Market Alpha, Systems Beta, Growth Gamma, VC Delta) in parallel with 1-click executive startup dossier export.</p>
-                        <span class="app-tag" style="background: rgba(245, 158, 11, 0.1); color: #f59e0b;">Autonomous Multi-Agent</span>
-                    </div>
-
-                    <!-- App 4: Cyber Globe -->
-                    <div class="app-card">
-                        <div class="app-icon-badge" style="background: rgba(0, 113, 227, 0.1); color: #0071e3;">🌐</div>
-                        <h3>Cyber Globe Telemetry</h3>
-                        <p>3D particle earth globe with live edge latency diagnostics across Cloudflare, AWS, and Google Cloud data centers worldwide.</p>
-                        <span class="app-tag" style="background: rgba(0, 113, 227, 0.1); color: #0071e3;">Global Telemetry</span>
+                <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid var(--border-hairline); border-radius: var(--radius-lg); padding: 32px; backdrop-filter: blur(16px);">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; text-align: center;">
+                        <div style="background: rgba(0, 113, 227, 0.1); border: 1px solid rgba(0, 113, 227, 0.3); border-radius: 12px; padding: 18px 12px;">
+                            <div style="font-size: 24px; margin-bottom: 6px;">🎯</div>
+                            <strong style="color: #fff; font-size: 13px;">1. User Objective</strong>
+                            <p style="font-size: 11px; color: #94a3b8; margin-top: 4px;">Structured intent input</p>
+                        </div>
+                        <div style="background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 12px; padding: 18px 12px;">
+                            <div style="font-size: 24px; margin-bottom: 6px;">📋</div>
+                            <strong style="color: #fff; font-size: 13px;">2. Autonomous Planner</strong>
+                            <p style="font-size: 11px; color: #94a3b8; margin-top: 4px;">Multi-step plan decomposition</p>
+                        </div>
+                        <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 12px; padding: 18px 12px;">
+                            <div style="font-size: 24px; margin-bottom: 6px;">🛡️</div>
+                            <strong style="color: #fff; font-size: 13px;">3. Permission Gate</strong>
+                            <p style="font-size: 11px; color: #94a3b8; margin-top: 4px;">Human approval on high risk</p>
+                        </div>
+                        <div style="background: rgba(6, 182, 212, 0.1); border: 1px solid rgba(6, 182, 212, 0.3); border-radius: 12px; padding: 18px 12px;">
+                            <div style="font-size: 24px; margin-bottom: 6px;">⚡</div>
+                            <strong style="color: #fff; font-size: 13px;">4. Tool Fabric</strong>
+                            <p style="font-size: 11px; color: #94a3b8; margin-top: 4px;">Sandboxed filesystem & commands</p>
+                        </div>
+                        <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 12px; padding: 18px 12px;">
+                            <div style="font-size: 24px; margin-bottom: 6px;">💳</div>
+                            <strong style="color: #fff; font-size: 13px;">5. Luhn DLP Shield</strong>
+                            <p style="font-size: 11px; color: #94a3b8; margin-top: 4px;">Zero card or code leaks</p>
+                        </div>
+                        <div style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 12px; padding: 18px 12px;">
+                            <div style="font-size: 24px; margin-bottom: 6px;">🔐</div>
+                            <strong style="color: #fff; font-size: 13px;">6. Sovereign Vault</strong>
+                            <p style="font-size: 11px; color: #94a3b8; margin-top: 4px;">AES-256-GCM zero-cloud enclave</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Interactive Voice & MNC Security Showcase -->
-        <section class="interactive-showcase-section" id="security">
+        <!-- 21st.dev 6-Card Interactive Bento Grid -->
+        <section class="apps-grid-section" id="bento">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">SOVEREIGN ECOSYSTEM</span>
+                    <h2 class="section-title">Engineered to Replace Leaky Cloud SaaS</h2>
+                    <p class="section-desc">Six sovereign power tools operating with client-side cryptography and zero monthly subscriptions.</p>
+                </div>
+
+                <div class="apps-grid">
+                    <!-- App 1: Neural Canvas -->
+                    <div class="app-card spotlight-card">
+                        <div class="app-icon-badge" style="background: rgba(139, 92, 246, 0.15); color: #8b5cf6;">🧠</div>
+                        <h3>Neural Mind Canvas</h3>
+                        <p>Infinite 2D spatial canvas with live AI node chaining. Connect thoughts, code blueprints, and architecture diagrams into continuous reasoning streams.</p>
+                        <span class="app-tag" style="background: rgba(139, 92, 246, 0.15); color: #a78bfa;">Spatial Intelligence</span>
+                    </div>
+
+                    <!-- App 2: Code Studio -->
+                    <div class="app-card spotlight-card">
+                        <div class="app-icon-badge" style="background: rgba(6, 182, 212, 0.15); color: #06b6d4;">⚡</div>
+                        <h3>Sovereign Code Studio</h3>
+                        <p>In-OS IDE with syntax highlighting, 60 FPS sandboxed preview, and AI pair programmer. Prototype web apps and reactive simulations in real time.</p>
+                        <span class="app-tag" style="background: rgba(6, 182, 212, 0.15); color: #22d3ee;">Developer Studio</span>
+                    </div>
+
+                    <!-- App 3: Sovereign Vault & Payment Armor -->
+                    <div class="app-card spotlight-card">
+                        <div class="app-icon-badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981;">🔐</div>
+                        <h3>Sovereign Secret Vault</h3>
+                        <p>Client-side zero-knowledge encrypted vault powered by AES-256-GCM and PBKDF2 (100k rounds). Stores payment cards, Stripe keys, and code licenses safely.</p>
+                        <span class="app-tag" style="background: rgba(16, 185, 129, 0.15); color: #34d399;">Zero-Knowledge Cryptography</span>
+                    </div>
+
+                    <!-- App 4: Agent Swarm -->
+                    <div class="app-card spotlight-card">
+                        <div class="app-icon-badge" style="background: rgba(245, 158, 11, 0.15); color: #f59e0b;">🤖</div>
+                        <h3>Agent Swarm Orchestrator</h3>
+                        <p>Deploy 4 autonomous AI agents (Market Alpha, Systems Beta, Growth Gamma, VC Delta) in parallel with 1-click executive startup dossier export.</p>
+                        <span class="app-tag" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24;">Autonomous Multi-Agent</span>
+                    </div>
+
+                    <!-- App 5: Code Fortress & DLP Shield -->
+                    <div class="app-card spotlight-card">
+                        <div class="app-icon-badge" style="background: rgba(239, 68, 68, 0.15); color: #ef4444;">🛡️</div>
+                        <h3>Code Fortress & DLP Shield</h3>
+                        <p>Luhn algorithm payment card validation, Visa/Mastercard/UPI filter, secret key redaction, and zero-outbound proprietary code exfiltration armor.</p>
+                        <span class="app-tag" style="background: rgba(239, 68, 68, 0.15); color: #f87171;">Anti-Leak Fortress</span>
+                    </div>
+
+                    <!-- App 6: Cyber Globe -->
+                    <div class="app-card spotlight-card">
+                        <div class="app-icon-badge" style="background: rgba(0, 113, 227, 0.15); color: #0071e3;">🌐</div>
+                        <h3>Cyber Globe Telemetry</h3>
+                        <p>3D particle earth globe with live edge latency diagnostics across Cloudflare, AWS, and Google Cloud data centers worldwide.</p>
+                        <span class="app-tag" style="background: rgba(0, 113, 227, 0.15); color: #38bdf8;">Global Telemetry</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 21st.dev Interactive Terminal & British Voice Engine -->
+        <section class="interactive-showcase-section" id="terminal">
             <div class="container">
                 <div class="showcase-two-col">
-                    <!-- Column 1: MNC Security Fortress -->
+                    <!-- Column 1: Interactive DLP Terminal Runner -->
                     <div class="showcase-box">
-                        <div class="section-badge">MNC SECURITY FORTRESS</div>
-                        <h3 style="font-size: 24px; font-weight: 700;">Impenetrable Zero-Trust Kernel</h3>
-                        <p style="font-size: 14px; color: var(--text-secondary);">
-                            Enterprise-grade security architecture designed to prevent data leakage, unauthorized telemetry, and credential theft.
+                        <div class="section-badge">INTERACTIVE DLP TERMINAL</div>
+                        <h3 style="font-family: var(--font-heading); font-size: 22px; font-weight: 700; color: #fff;">Live DLP & Code Fortress CLI</h3>
+                        <p style="font-size: 13.5px; color: var(--text-secondary);">
+                            Click any command to test how ARGUS intercepts leaked cards, masks secrets, and validates sovereign checkpoints:
                         </p>
 
-                        <div style="display: flex; flex-direction: column; gap: 10px; font-size: 13px;">
-                            <div>🛡️ <strong>DNS over HTTPS (DoH):</strong> Cloudflare Zero-Trust edge encrypted DNS.</div>
-                            <div>🔐 <strong>k-Anonymity Breach Defense:</strong> Instant checks against 850M+ leaked passwords with zero credential transmission.</div>
-                            <div>🔒 <strong>SHA-256 Salted Vault:</strong> All user identities hashed locally using Web Crypto API.</div>
-                            <div>✉️ <strong>Founder Alert Webhook:</strong> Real-time security dispatches to founder Gmail addresses.</div>
+                        <div class="terminal-tabs">
+                            <button class="term-tab-btn active" data-cmd="security">argus security status</button>
+                            <button class="term-tab-btn" data-cmd="dlp">argus dlp inspect</button>
+                            <button class="term-tab-btn" data-cmd="vault">argus vault test</button>
+                        </div>
+
+                        <div class="terminal-mockup" id="term-output-box">
+                            <div><span style="color: #10b981;">argus@sovereign:~$</span> argus security status</div>
+                            <div style="color: #cbd5e1; margin-top: 4px;">✓ Agent Firewall: ACTIVE (Zero-Trust Interceptor)</div>
+                            <div style="color: #cbd5e1;">✓ Luhn Payment Shield: ACTIVE (13-19 Digit Validator)</div>
+                            <div style="color: #cbd5e1;">✓ Code Fortress: ENFORCED (Zero Outbound Source Code)</div>
+                            <div style="color: #38bdf8; margin-top: 4px;">Status: 100% Enclave Sovereignty Confirmed.</div>
                         </div>
                     </div>
 
                     <!-- Column 2: Interactive British Voice Copilot -->
                     <div class="showcase-box" id="voice">
-                        <div class="section-badge">NEURAL VOICE ENGINE</div>
-                        <h3 style="font-size: 24px; font-weight: 700;">Sub-50ms British Voice Synthesis</h3>
-                        <p style="font-size: 14px; color: var(--text-secondary);">
-                            Test ARGUS's high-definition British neural voice directly in your browser.
+                        <div class="section-badge">NEURAL VOICE COPILOT</div>
+                        <h3 style="font-family: var(--font-heading); font-size: 22px; font-weight: 700; color: #fff;">Sub-50ms British Voice Synthesis</h3>
+                        <p style="font-size: 13.5px; color: var(--text-secondary);">
+                            Experience ARGUS's real-time neural speech bridge directly in your browser:
                         </p>
 
                         <div class="voice-tester">
                             <div class="voice-input-row">
-                                <input type="text" id="voice-test-text" class="apple-input" value="Good evening, Steve. All sovereign systems are operating at peak efficiency." placeholder="Type phrase for voice synthesis...">
+                                <input type="text" id="voice-test-text" class="apple-input" value="Good evening, Steve. All sovereign systems and payment shields are active." placeholder="Type phrase for voice synthesis...">
                                 <button class="apple-btn" id="voice-test-btn">▶ Speak</button>
                             </div>
                             <div class="voice-status" id="voice-status-display">
                                 🎙️ Status: Ready • Web Speech & Neural Bridge Active
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 21st.dev Smooth FAQ Accordion -->
+        <section class="interactive-showcase-section" id="faq" style="padding: 60px 0;">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">FREQUENTLY ASKED QUESTIONS</span>
+                    <h2 class="section-title">Everything You Need to Know</h2>
+                    <p class="section-desc">How ARGUS guarantees zero cloud lock-in, data sovereignty, and uncompromised execution.</p>
+                </div>
+
+                <div style="max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px;">
+                    <div class="faq-item" style="background: var(--bg-card); border: 1px solid var(--border-hairline); border-radius: 12px; padding: 18px 20px; cursor: pointer;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: #fff;">
+                            <span>How does ARGUS prevent payment cards and code from leaking?</span>
+                            <span class="faq-icon" style="color: var(--accent-cyan);">+</span>
+                        </div>
+                        <div class="faq-answer" style="display: none; font-size: 13px; color: #94a3b8; margin-top: 10px; line-height: 1.6;">
+                            ARGUS features the Code Fortress DLP engine that validates credit cards with the mathematical Luhn checksum algorithm, masks Stripe/OpenAI keys, and prevents outbound network tools from transmitting proprietary repository files.
+                        </div>
+                    </div>
+
+                    <div class="faq-item" style="background: var(--bg-card); border: 1px solid var(--border-hairline); border-radius: 12px; padding: 18px 20px; cursor: pointer;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: #fff;">
+                            <span>Can I use ARGUS with 100% local Ollama models?</span>
+                            <span class="faq-icon" style="color: var(--accent-cyan);">+</span>
+                        </div>
+                        <div class="faq-answer" style="display: none; font-size: 13px; color: #94a3b8; margin-top: 10px; line-height: 1.6;">
+                            Yes. ARGUS has native local Ollama integration (DeepSeek-R1, Llama 3.3, Mistral, Qwen) so your prompts, documents, and memory never leave your device.
+                        </div>
+                    </div>
+
+                    <div class="faq-item" style="background: var(--bg-card); border: 1px solid var(--border-hairline); border-radius: 12px; padding: 18px 20px; cursor: pointer;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: #fff;">
+                            <span>What operating systems are supported?</span>
+                            <span class="faq-icon" style="color: var(--accent-cyan);">+</span>
+                        </div>
+                        <div class="faq-answer" style="display: none; font-size: 13px; color: #94a3b8; margin-top: 10px; line-height: 1.6;">
+                            Native desktop packages are available for Windows 10/11 (.msi) and macOS Sonoma/Sequoia (.dmg), as well as a full Web OS running right in the browser.
                         </div>
                     </div>
                 </div>
@@ -290,7 +401,7 @@
 
                 <div class="download-cards">
                     <!-- Windows Card -->
-                    <div class="download-card">
+                    <div class="download-card spotlight-card">
                         <div class="download-icon">🪟</div>
                         <h3>Windows 10 / 11</h3>
                         <p>Installer for 64-bit Windows systems. Includes desktop shortcuts and local Ollama auto-bridge.</p>
@@ -309,7 +420,7 @@
                     </div>
 
                     <!-- macOS Card -->
-                    <div class="download-card">
+                    <div class="download-card spotlight-card">
                         <div class="download-icon">🍏</div>
                         <h3>macOS Sonoma / Sequoia</h3>
                         <p>Universal binary for Apple Silicon (M1/M2/M3/M4) and Intel Macs.</p>
@@ -379,7 +490,7 @@
             <div class="footer-links">
                 <a href="#home">Home</a>
                 <a href="#preview">Web OS</a>
-                <a href="#apps">Apps</a>
+                <a href="#bento">Ecosystem</a>
                 <a href="#download">Download</a>
                 <a href="https://github.com/JanSteve/ARGUS" target="_blank">GitHub</a>
             </div>
@@ -400,20 +511,20 @@
         <div class="auth-modal-card">
             <button class="auth-modal-close" id="auth-modal-close-btn">&times;</button>
             
-            <div class="auth-modal-header">
+            <div class="auth-modal-header" style="text-align: center; margin-bottom: 16px;">
                 <img src="assets/argus-logo.svg" alt="ARGUS Logo" style="width: 44px; height: 44px; margin-bottom: 8px;">
-                <h3 id="auth-modal-title" style="font-size: 20px; font-weight: 700; color: #1d1d1f;">Sign In to ARGUS</h3>
-                <p id="auth-modal-sub" style="font-size: 13px; color: #6e6e73; margin-top: 4px;">
+                <h3 id="auth-modal-title" style="font-family: var(--font-heading); font-size: 20px; font-weight: 700; color: #fff;">Sign In to ARGUS</h3>
+                <p id="auth-modal-sub" style="font-size: 13px; color: #94a3b8; margin-top: 4px;">
                     Authenticate to download installer builds and launch the Sovereign Web OS.
                 </p>
             </div>
 
             <!-- Auth Mode Segmented Control Tabs -->
-            <div class="auth-tabs" style="display: flex; background: #f5f5f7; border-radius: 10px; padding: 4px; margin-bottom: 16px;">
-                <button type="button" id="tab-sign-in" class="auth-tab-btn active" style="flex: 1; padding: 8px; border: none; background: #fff; border-radius: 8px; font-weight: 600; font-size: 13px; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.06); transition: all 0.2s;">
+            <div class="auth-tabs" style="display: flex; background: rgba(0,0,0,0.4); border-radius: 10px; padding: 4px; margin-bottom: 16px; border: 1px solid var(--border-hairline);">
+                <button type="button" id="tab-sign-in" class="auth-tab-btn active" style="flex: 1; padding: 8px; border: none; background: #0071e3; border-radius: 8px; font-weight: 600; font-size: 13px; cursor: pointer; color: #fff; transition: all 0.2s;">
                     Sign In
                 </button>
-                <button type="button" id="tab-sign-up" class="auth-tab-btn" style="flex: 1; padding: 8px; border: none; background: transparent; border-radius: 8px; font-weight: 600; font-size: 13px; cursor: pointer; color: #6e6e73; transition: all 0.2s;">
+                <button type="button" id="tab-sign-up" class="auth-tab-btn" style="flex: 1; padding: 8px; border: none; background: transparent; border-radius: 8px; font-weight: 600; font-size: 13px; cursor: pointer; color: #94a3b8; transition: all 0.2s;">
                     Sign Up
                 </button>
             </div>
@@ -442,16 +553,16 @@
             <form id="auth-email-form">
                 <div style="display: flex; flex-direction: column; gap: 12px;">
                     <div id="auth-name-container" style="display: none;">
-                        <label for="auth-name" style="font-size: 11px; font-weight: 600; color: #86868b; text-transform: uppercase;">Full Name</label>
-                        <input type="text" id="auth-name" class="apple-input" placeholder="e.g. Steve Daniel" style="margin-top: 4px;">
+                        <label for="auth-name" style="font-size: 11px; font-weight: 600; color: #94a3b8; text-transform: uppercase;">Full Name</label>
+                        <input type="text" id="auth-name" class="apple-input" placeholder="e.g. Steve Daniel" style="margin-top: 4px; width: 100%;">
                     </div>
                     <div>
-                        <label for="auth-email" style="font-size: 11px; font-weight: 600; color: #86868b; text-transform: uppercase;">Official Email Address</label>
-                        <input type="email" id="auth-email" class="apple-input" placeholder="name@company.com" required style="margin-top: 4px;">
+                        <label for="auth-email" style="font-size: 11px; font-weight: 600; color: #94a3b8; text-transform: uppercase;">Official Email Address</label>
+                        <input type="email" id="auth-email" class="apple-input" placeholder="name@company.com" required style="margin-top: 4px; width: 100%;">
                     </div>
                     <div>
-                        <label for="auth-password" style="font-size: 11px; font-weight: 600; color: #86868b; text-transform: uppercase;">Password</label>
-                        <input type="password" id="auth-password" class="apple-input" placeholder="••••••••••••" required style="margin-top: 4px;">
+                        <label for="auth-password" style="font-size: 11px; font-weight: 600; color: #94a3b8; text-transform: uppercase;">Password</label>
+                        <input type="password" id="auth-password" class="apple-input" placeholder="••••••••••••" required style="margin-top: 4px; width: 100%;">
                     </div>
 
                     <button type="submit" class="btn-apple-primary" id="auth-submit-btn" style="width: 100%; justify-content: center; margin-top: 6px;">
@@ -468,26 +579,26 @@
 
     <!-- Active User Profile Dropdown Sheet -->
     <div id="user-profile-sheet" class="auth-modal-overlay" style="display: none;">
-        <div class="auth-modal-card" style="max-width: 360px; text-align: center;">
+        <div class="auth-modal-card" style="max-width: 380px; text-align: center;">
             <button class="auth-modal-close" id="profile-sheet-close-btn">&times;</button>
             <div id="profile-avatar-circle" style="width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, #0071e3, #06b6d4); color: #fff; font-size: 24px; font-weight: bold; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px;">
                 SD
             </div>
-            <h3 id="profile-name-text" style="font-size: 18px; font-weight: 700; color: #1d1d1f;">Steve Daniel</h3>
-            <p id="profile-email-text" style="font-size: 13px; color: #6e6e73; margin-top: 2px;">contact.stevedaniel@gmail.com</p>
+            <h3 id="profile-name-text" style="font-family: var(--font-heading); font-size: 18px; font-weight: 700; color: #fff;">Steve Daniel</h3>
+            <p id="profile-email-text" style="font-size: 13px; color: #94a3b8; margin-top: 2px;">contact.stevedaniel@gmail.com</p>
             
-            <div style="margin: 16px 0; padding: 12px; background: #f5f5f7; border-radius: 12px; text-align: left; font-size: 12px;">
+            <div style="margin: 16px 0; padding: 14px; background: rgba(0, 0, 0, 0.4); border: 1px solid var(--border-hairline); border-radius: 12px; text-align: left; font-size: 12px;">
                 <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
-                    <span style="color: #86868b;">Auth Provider:</span>
-                    <strong id="profile-provider-text" style="color: #0071e3;">Google Sovereign</strong>
+                    <span style="color: #94a3b8;">Auth Provider:</span>
+                    <strong id="profile-provider-text" style="color: #38bdf8;">Google Sovereign</strong>
                 </div>
                 <div style="display: flex; justify-content: space-between;">
-                    <span style="color: #86868b;">Access Status:</span>
+                    <span style="color: #94a3b8;">Access Status:</span>
                     <strong style="color: #10b981;">✓ Full Access Verified</strong>
                 </div>
             </div>
 
-            <button type="button" id="profile-signout-btn" class="apple-btn" style="width: 100%; justify-content: center; background: #fee2e2; color: #b91c1c; border-color: #fca5a5; font-weight: 600;">
+            <button type="button" id="profile-signout-btn" class="apple-btn" style="width: 100%; justify-content: center; background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.4); font-weight: 600;">
                 Sign Out
             </button>
         </div>
