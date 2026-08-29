@@ -634,7 +634,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ─── 4. Interactive British Neural Voice Synthesizer ───
+  // ─── 4. Interactive Imposing Queen Neural Voice Synthesizer ───
   const voiceBtn = document.getElementById("voice-test-btn");
   const voiceInput = document.getElementById("voice-test-text");
   const voiceStatus = document.getElementById("voice-status-display");
@@ -649,19 +649,24 @@ document.addEventListener("DOMContentLoaded", () => {
         const utterance = new SpeechSynthesisUtterance(text);
         const voices = window.speechSynthesis.getVoices();
         
-        const britishVoice = voices.find(
-          (v) => v.lang.includes("en-GB") || v.name.includes("British") || v.name.includes("Daniel") || v.name.includes("George")
-        ) || voices.find((v) => v.lang.startsWith("en"));
+        // Prioritize Imposing Queen British / English Female Voices
+        const queenFemaleVoice =
+          voices.find((v) => v.name.includes("Victoria") || v.name.includes("Serena") || v.name.includes("Stephanie")) ||
+          voices.find((v) => v.name.includes("Google UK English Female") || (v.lang.startsWith("en-GB") && v.name.includes("Female"))) ||
+          voices.find((v) => v.name.includes("Samantha") || v.name.includes("Karen") || v.name.includes("Moira") || v.name.includes("Tessa")) ||
+          voices.find((v) => v.lang.startsWith("en-GB") || v.lang.startsWith("en_GB")) ||
+          voices.find((v) => v.lang.startsWith("en") && !v.name.includes("Male") && !v.name.includes("David") && !v.name.includes("Guy") && !v.name.includes("George")) ||
+          voices[0];
 
-        if (britishVoice) utterance.voice = britishVoice;
-        utterance.rate = 1.02;
-        utterance.pitch = 0.96;
+        if (queenFemaleVoice) utterance.voice = queenFemaleVoice;
+        utterance.rate = 1.0;
+        utterance.pitch = 1.04;
 
         utterance.onstart = () => {
-          voiceStatus.textContent = "🔊 Synthesizing: Sub-50ms British Neural Voice Output...";
+          voiceStatus.textContent = "🔊 Synthesizing: Imposing Queen (Steely • Polished • Regal)...";
         };
         utterance.onend = () => {
-          voiceStatus.textContent = "🎙️ Status: Ready • Web Speech & Neural Bridge Active";
+          voiceStatus.textContent = "🎙️ Status: Ready • Imposing Queen Female Voice Engine Active";
         };
 
         window.speechSynthesis.speak(utterance);
